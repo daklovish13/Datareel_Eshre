@@ -29,7 +29,7 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1.0. maximum-scale=1.0, user-scalable=no"
       ></meta>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased container !mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative container !mx-auto`}
       >
         {children}
       </body>

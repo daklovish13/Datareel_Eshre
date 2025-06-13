@@ -15,9 +15,15 @@ export const Header = () => {
         />
       </div>
       <div className="flex gap-2">
-       {pathname!=="/"&& <button className="  md:px-6 px-2  ">
+       {pathname!=="/"&&
+        <button className="md:block hidden md:px-6 px-2  ">
           <div className="md:text-[13px] text-[10px]">Get a Quote</div>
         </button>}
+         {pathname!=="/"&&
+        <button className="md:hidden block fixed -left-8 top-[50%] rotate-90 px-4 py-2 z-50">
+          <div className="text-[13px] ">Get a Quote</div>
+        </button>}
+
 
         <button className="h-fit p-1 md:px-6 ">
           <div className="pb-0 mb-0 text-[13px]">ESHRE 2025</div>

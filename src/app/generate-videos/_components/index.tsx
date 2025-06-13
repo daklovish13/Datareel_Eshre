@@ -192,7 +192,7 @@ export const GenerateVideoUI = () => {
                     prev === label ? null : label
                   )
                 }
-                className={`flex flex-1 items-center gap-3 mx-auto md:my-0 my-1 px-4 py-2 justify-center  rounded-[12px]  cursor-pointer ${
+                className={`flex flex-1 items-center md:w-fit w-full gap-3 mx-auto md:my-0 my-1 px-4 py-2 justify-center  rounded-[12px]  cursor-pointer ${
                   selectedVideoType === label
                     ? "bg-[#855AE921] border  text-black border-[#855AE9]"
                     : "shadow-md text-black"
