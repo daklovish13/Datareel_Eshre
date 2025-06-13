@@ -80,7 +80,7 @@ export const GenerateVideoUI = () => {
                   setSelectedAvatar((prev) => (prev === index ? null : index))
                 }
                 // Handle click selection
-                className={`relative md:w-[150px] md:h-[150px] h-[100px] w-[100px] rounded-full flex items-center justify-center  cursor-pointer transition 
+                className={`relative md:w-[150px] md:h-[150px] h-[80px] w-[80px] rounded-full flex items-center justify-center  cursor-pointer transition 
         ${
           selectedAvatar === index
             ? "  border-2 border-[#6864F4]"
@@ -151,7 +151,7 @@ export const GenerateVideoUI = () => {
                 onClick={() =>
                   setSelectedLanguage((prev) => (prev === lang ? null : lang))
                 }
-                className={` flex items-center md:mx-0   w-fit gap-2 px-13 py-2 text-[14px] font-medium  rounded-[12px]  cursor-pointer ${
+                className={` flex items-center md:mx-0   md:w-fit w-full gap-2 px-13 py-2 text-[14px] font-medium  rounded-[12px]  cursor-pointer ${
                   selectedLanguage === lang
                     ? "bg-[#855AE921] border text-black border-[#855AE9]"
                     : "shadow-md text-black"

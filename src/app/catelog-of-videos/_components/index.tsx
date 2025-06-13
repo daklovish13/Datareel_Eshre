@@ -24,7 +24,7 @@ export const Catalog = () => {
         </div>
         {/* Generate Button on top-right of the main image */}
         <div className="">
-          <div className="md:block hidden absolute md:top-27 md:right-20  height-30">
+          <div className="md:block hidden absolute md:top-29 md:right-20  height-30">
             <Link href="/generate-videos">
               <Image
                 src="/Group32.png"
