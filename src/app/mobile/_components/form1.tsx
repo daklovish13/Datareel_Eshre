@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import LanguageSelection from "./form2";
+
 import StepLayout from "./StepLayout";
 
 export default function AvatarSelection({ onNext }: { onNext: () => void }) {
