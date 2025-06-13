@@ -19,8 +19,77 @@
   }
 }
 
+button{
+  background: linear-gradient(90deg, #6864F4 0%, #855AE9 100%);
+  border-radius: 8px;
+  color:white;
+}
+.lh-53{
+  line-height: 53px;
+}
+
+.bg-cutom-color{
+  background: linear-gradient(90deg, #6864F4 0%, #855AE9 100%);
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+.fbg{
+  font-family: Geist;
+}
+
+.bg-custom-light{
+  background: rgba(104, 100, 244, 1);
+  opacity: 20%;
+}
+
+
+.hero {
+  font-family: Geist;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+}
+
+
+.bg-size{
+  background-size: 100% 195% !important;
+  background-color: #EEF2FE !important;
+}
+
+
+.feature {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+footer {
+  padding: 20px 0;
+  background-color: #4F86F7;
+  color: white;
+}
+
+.custom-heightWidth{
+  height: 96px;
+  width: 96px;
+}
+@media only screen and (min-width: 600px) {
+.bg-size{
+  background-size: 99% 60% !important;
+  background-color: #EEF2FE !important;
+}
+
+}
+
+@media (min-height: 601px) and (max-height: 800px) {
+  .custom-heightWidth {
+    height: 130px;
+    width: 130px;
+  }
 }
