@@ -7,7 +7,7 @@ import { useState } from "react";
 export const Catalog = () => {
   const video = [
     "/videos/demo_video.mp4",
-    "/videos/demo_video2.mp4",
+    "/videos/eshre_demo2.mp4",
     "/videos/demo_video3.mp4",
   ];
   const [selectedVideo, setSelectedVideo] = useState({
