@@ -311,7 +311,7 @@ export default function Home() {
         <DialogTitle align="left">{"Get a Quote"}</DialogTitle>
         <Divider/>
         <DialogContent>
-          <HubspotForm id="get_a_quote"/>
+          <HubspotForm id="get_a_quotes"/>
         </DialogContent>
       </Dialog>
     </div>
