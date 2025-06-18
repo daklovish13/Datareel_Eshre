@@ -1,11 +1,20 @@
 "use client";
+import React from "react";
 import { Header } from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 
 export const GeneratedVideoUI = () => {
-  const video = sessionStorage.getItem("videoData") || "";
-  console.log(video);
+  const [video, setVideo] = React.useState<string>("");
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedVideo = sessionStorage.getItem("videoData") || "";
+      setVideo(storedVideo);
+      console.log(storedVideo);
+    }
+  }, []);
+
   return (
     <>
       <Header />
