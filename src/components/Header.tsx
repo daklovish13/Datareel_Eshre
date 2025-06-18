@@ -40,7 +40,7 @@ export const Header = () => {
     <header className="bg-white flex  justify-between md:px-8 md:pr-4 pr-2  py-4 w-full text-white  h-[70px]">
       <div className="relative w-[135px] h-[40px] ">
         <Image
-          src="/logo1.png"
+          src="/Logo1.png"
           alt="Company Logo"
           fill
           className="object-contain bg-[#2463e9]"
