@@ -1,14 +1,25 @@
 "use client";
 
 import { Header } from "@/components/Header";
+import HubspotForm from "@/components/HubspotForm";
+import { Dialog, DialogContent, DialogTitle, Divider, Slide } from "@mui/material";
+import { TransitionProps } from "@mui/material/transitions";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const breakpoint = 768;
-
+  const [open,setModalOpen]=useState(false)
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= breakpoint);
@@ -277,6 +288,7 @@ export default function Home() {
               </div>
               <button
                 style={{ background: "white" }}
+                onClick={()=>setModalOpen(true)}
                 className="mt-4 !text-[#6864F4] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 !rounded-[8px] !transition hover:!bg-gray-100"
               >
                 Get a quote
@@ -285,6 +297,23 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Dialog
+        open={open}
+        slots={{
+          transition: Transition,
+        }}
+        keepMounted
+        className="rounded-xl"
+        fullWidth
+        onClose={()=>setModalOpen(false)}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle align="left">{"Get a Quote"}</DialogTitle>
+        <Divider/>
+        <DialogContent>
+          <HubspotForm />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

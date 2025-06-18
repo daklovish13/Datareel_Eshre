@@ -2,19 +2,113 @@
 
 import Image from "next/image";
 import { Header } from "@/components/Header";
+import { countries, ICountryData } from "countries-list";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  Button,
+  CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Divider,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  Slide,
+  TextField,
+  Tooltip,
+} from "@mui/material";
+import { TransitionProps } from "@mui/material/transitions";
+import HubspotForm from "@/components/HubspotForm";
+import { useRouter } from "next/navigation";
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export const GenerateVideoUI = () => {
+  const navigation = useRouter();
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
   const [selectedVideoType, setSelectedVideoType] = useState<string | null>(
     null
   );
+  const [openCustom, setCustomModal] = useState(false);
   const [selectedDisease, setSelectedDisease] = useState<string | null>(null);
   const [selectedAvatar, setSelectedAvatar] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [age, setAge] = React.useState("");
+  const [loading,setLoading] = useState(false);
+  const [countryCode, setCountryCode] = useState("");
+  const handleChange = (code: string, name: string) => {
+    setCountryCode(code);
+    setAge(name);
+  };
+  console.log(age);
+  useEffect(() => {
+    sessionStorage.setItem("videoData","");
+    fetch("https://ipapi.co/json/")
+      .then((response) => response.json())
+      .then((data) => {
+        setAge(data.country_name);
+        setCountryCode(data?.country_calling_code);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  const generateVideo = async () => {+
+    setLoading(true);
+    const params = {
+      avatar_id: selectedAvatar ? selectedAvatar + 1 : 1,
+      language: selectedLanguage,
+      video_type: selectedVideoType,
+      disease: selectedDisease,
+    };
+    const url="https://datareel-eshre-backend-89ex.onrender.com";
+    // const url = "http://127.0.0.1:8000";
+    fetch(`${url}/get-video-id`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(params),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setLoading(false)
+        sessionStorage.setItem("videoData", JSON.stringify(result.video_url))
+        navigation.push("/generated-videos");
+      });
+  };
 
   return (
     <div className="min-h-screen bg-[#f4f5ff] text-gray-700">
+      <Dialog
+        open={openCustom}
+        slots={{
+          transition: Transition,
+        }}
+        keepMounted
+        className="rounded-xl"
+        fullWidth
+        onClose={() => setCustomModal(false)}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle align="left">{"Custom"}</DialogTitle>
+        <Divider />
+        <DialogContent>
+          <HubspotForm id="custom_form" />
+        </DialogContent>
+      </Dialog>
       <Header />
 
       <div className="p-4 text-gray-700">
@@ -99,6 +193,7 @@ export const GenerateVideoUI = () => {
                   }
                   alt={`Avatar ${index}`}
                   fill
+                  onClick={() => index == 4 && setCustomModal(true)}
                   className="object-contain rounded-full md:block hidden"
                 />
                 <Image
@@ -112,6 +207,7 @@ export const GenerateVideoUI = () => {
                   alt={`Avatar ${index}`}
                   height={120}
                   width={120}
+                  onClick={() => index == 4 && setCustomModal(true)}
                   className=" rounded-full md:hidden block"
                 />
                 {/* Tick Icon */}
@@ -163,6 +259,7 @@ export const GenerateVideoUI = () => {
             <img
               src="/custom_plus.png"
               alt="custom"
+              onClick={() => setCustomModal(true)}
               className="h-[45px] flex items-center  my-auto md:mx-0 mx-auto md:-mb-[4px] md:mt-0 mt-2"
             />
           </div>
@@ -214,6 +311,7 @@ export const GenerateVideoUI = () => {
             <img
               src="/custom_plus.png"
               alt="custom"
+              onClick={() => setCustomModal(true)}
               className="h-[45px] flex mx-auto -mb-[4px] mt-[10px]"
             />
           </div>
@@ -256,6 +354,7 @@ export const GenerateVideoUI = () => {
             <img
               src="/custom_plus.png"
               alt="custom"
+              onClick={() => setCustomModal(true)}
               className="h-[45px] flex mx-auto -mb-[4px] mt-4 md:mt-0"
             />
           </div>
@@ -263,67 +362,87 @@ export const GenerateVideoUI = () => {
 
         {/* Generate Buttons */}
         <div className="flex  items-center w-full">
-          {/* Left Button */}
-          {/* <Link href="/catelog-of-videos">
-    <button className="flex items-center gap-3  text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
-      <span>
-        <img
-          src="catelog_arrow.png"
-          alt="arrow"
-          className="h-[15px] w-[15px] mt-0.5"
-        />
-      </span>
-      Checkout Catelogue
-    </button>
-  </Link> */}
-
           {/* Right Button */}
-          <Link href="/generated-videos" className="flex ml-auto">
-            <button className="flex items-center gap-3 ml-auto text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
-              Generate
-              <span>
-                <img
-                  src="right_use.png"
-                  alt="arrow"
-                  className="h-[15px] w-[15px] mt-0.5"
-                />
-              </span>
-            </button>
-          </Link>
+          {selectedAvatar === null &&
+          selectedDisease === null &&
+          selectedVideoType === null &&
+          selectedLanguage === null ? (
+            <Tooltip title="Please complete all selections: Avatar, Language, Video Type, and Disease.">
+              <button className="flex items-center gap-3 ml-auto text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
+                {loading?<CircularProgress size={22} />:"Generate"}
+                <span>
+                  <img
+                    src="right_use.png"
+                    alt="arrow"
+                    className="h-[15px] w-[15px] mt-0.5"
+                  />
+                </span>
+              </button>
+            </Tooltip>
+          ) : (
+            <div onClick={generateVideo} className="flex ml-auto">
+              <button  className="flex items-center gap-3 ml-auto text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
+                {loading?<CircularProgress size={22} />:"Generate"}
+                <span>
+                  <img
+                    src="right_use.png"
+                    alt="arrow"
+                    className="h-[15px] w-[15px] mt-0.5"
+                  />
+                </span>
+              </button>
+            </div>
+          )}
         </div>
 
-          <div className="relative w-full md:px-0 px-4 pb-6">
-                  <div className="bg-[#6C63FF] px-8 md:py-0 py-4 mt-10 text-white rounded-xl  md:flex block  items-center md:gap-6 gap-2  w-full">
-                    {/* Left Side Illustration */}
-                    <div className=" flex justify-center">
-                      <Image
-                        src="/generate_quote.png"
-                        alt="Quote Illustration"
-                        width={250}
-                        height={250}
-                      />
-                    </div>
+        <div className="relative w-full md:px-0 px-4 pb-6">
+          <div className="bg-[#6C63FF] px-8 md:py-0 py-4 mt-10 text-white rounded-xl  md:flex block  items-center md:gap-6 gap-2  w-full">
+            {/* Left Side Illustration */}
+            <div className=" flex justify-center">
+              <Image
+                src="/generate_quote.png"
+                alt="Quote Illustration"
+                width={250}
+                height={250}
+              />
+            </div>
 
-         {/* Right Side Text and Button */}
+            {/* Right Side Text and Button */}
             <div className="w-full md:w-2/3 md:text-left text-center">
               <div>
                 <p className="md:text-[20px] text-[16px] font-medium">
-                  Request a Demo Featuring your Custom 
+                  Request a Demo Featuring your Custom
                   <br className="md:block hidden" /> Avatar and Voice
                 </p>
               </div>
               <button
                 style={{ background: "white" }}
+                onClick={handleOpen}
                 className="mt-4 !text-[#6864F4] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 !rounded-[8px] !transition hover:!bg-gray-100"
               >
                 Request a demo
               </button>
             </div>
-            </div>
-            </div>
+          </div>
+        </div>
       </div>
-
-      
+      <Dialog
+        open={open}
+        slots={{
+          transition: Transition,
+        }}
+        keepMounted
+        className="rounded-xl"
+        fullWidth
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle align="left">{"Book a Demo"}</DialogTitle>
+        <Divider />
+        <DialogContent>
+          <HubspotForm id="request_a_demo" />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -93,3 +93,9 @@ footer {
     width: 130px;
   }
 }
+
+
+#hs-form-iframe-1 .hs_submit{
+display:flex;
+justify-content: center;
+}
