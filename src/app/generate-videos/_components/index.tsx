@@ -56,8 +56,8 @@ export const GenerateVideoUI = () => {
       video_type: selectedVideoType,
       disease: selectedDisease,
     };
-    // const url="https://datareel-eshre-backend-89ex.onrender.com";
-    const url = "http://127.0.0.1:8000";
+     const url="https://datareel-eshre-backend-89ex.onrender.com";
+    // const url = "http://127.0.0.1:8000";
     fetch(`${url}/get-video-id`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
