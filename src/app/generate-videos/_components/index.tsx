@@ -18,6 +18,7 @@ import {
   Slide,
   
   Tooltip,
+  Typography,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import HubspotForm from "@/components/HubspotForm";
@@ -44,7 +45,7 @@ export const GenerateVideoUI = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const [request,setRequest]=useState(false)
   const [loading,setLoading] = useState(false);
 
   const generateVideo = async () => {
@@ -55,8 +56,8 @@ export const GenerateVideoUI = () => {
       video_type: selectedVideoType,
       disease: selectedDisease,
     };
-    const url="https://datareel-eshre-backend-89ex.onrender.com";
-    // const url = "http://127.0.0.1:8000";
+    // const url="https://datareel-eshre-backend-89ex.onrender.com";
+    const url = "http://127.0.0.1:8000";
     fetch(`${url}/get-video-id`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -65,8 +66,14 @@ export const GenerateVideoUI = () => {
       .then((res) => res.json())
       .then((result) => {
         setLoading(false)
-        sessionStorage.setItem("videoData", JSON.stringify(result.video_url))
+        console.log(result)
+        if(result?.detail){
+          alert(result?.detail)
+        }
+        else{
+        sessionStorage.setItem("videoData",result.video_url)
         navigation.push("/generated-videos");
+        }
       });
   };
 
@@ -80,13 +87,25 @@ export const GenerateVideoUI = () => {
         keepMounted
         className="rounded-xl"
         fullWidth
-        onClose={() => setCustomModal(false)}
+        onClose={() => {setCustomModal(false);setRequest(false)}}
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle align="left">{"Custom"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="custom_form" />
+          {request?<HubspotForm id="custom_form" />:
+          <div className="my-2">
+            <Typography> To Create your own custom avatar request a demo.</Typography>
+            <div className="flex justify-center my-4">
+               <button
+                onClick={()=>setRequest(true)}
+                className="mt-4 cursor-pointer  flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 !rounded-[8px] !transition hover:!bg-gray-100"
+              >
+               Request a Demo
+              </button>
+            </div>
+          </div>
+          }
         </DialogContent>
       </Dialog>
       <Header />
@@ -349,7 +368,7 @@ export const GenerateVideoUI = () => {
           selectedLanguage === null ? (
             <Tooltip title="Please complete all selections: Avatar, Language, Video Type, and Disease.">
               <button className="flex items-center gap-3 ml-auto text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
-                {loading?<CircularProgress size={22} />:"Generate"}
+                {loading?<CircularProgress size={22} color="info"/>:"Generate"}
                 <span>
                   <img
                     src="right_use.png"
@@ -362,7 +381,7 @@ export const GenerateVideoUI = () => {
           ) : (
             <div onClick={generateVideo} className="flex ml-auto">
               <button  className="flex items-center gap-3 ml-auto text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
-                {loading?<CircularProgress size={22} />:"Generate"}
+                {loading?<CircularProgress size={22} color="info"/>:"Generate"}
                 <span>
                   <img
                     src="right_use.png"

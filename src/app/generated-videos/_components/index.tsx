@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import { Header } from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export const GeneratedVideoUI = () => {
-  // const [video,setVideo]=useState(sessionStorage.getItem("videoData"))
+  const video = sessionStorage.getItem("videoData") || "";
+  console.log(video);
   return (
     <>
       <Header />
@@ -28,7 +28,11 @@ export const GeneratedVideoUI = () => {
 
         {/* Main video and button below it */}
         <div className="rounded-lg overflow-hidden shadow-md mb-1">
-          <img src="/Group.png" className="md:h-[515px]  w-full" />
+          <video
+            className="w-full md:h-[515px] h-44"
+            src={video}
+            controls
+          ></video>
         </div>
 
         <div className="flex mt-4 justify-between relative">
@@ -48,20 +52,25 @@ export const GeneratedVideoUI = () => {
             </p>
           </div>
           <div className=" absolute right-0 -top-1 mb-2">
-            <Image
-              src="/download_button.png"
-              alt="Download"
-              width={25}
-              height={25}
-              className="hover:opacity-80 cursor-pointer md:block hidden"
-            />
-            <Image
-              src="/download_button.png"
-              alt="Download"
-              width={22}
-              height={22}
-              className="hover:opacity-80 cursor-pointer md:hidden block"
-            />
+            <a href={video} target="_blank" download={`video.mp4`}>
+              <Image
+                src="/download_button.png"
+                alt="Download"
+                width={25}
+                height={25}
+                className="hover:opacity-80 cursor-pointer md:block hidden"
+              />
+            </a>
+            {/* Mobile download button */}
+            <a href={video} download={`video.mp4`}>
+              <Image
+                src="/download_button.png"
+                alt="Download"
+                width={22}
+                height={22}
+                className="hover:opacity-80 cursor-pointer md:hidden block"
+              />
+            </a>
           </div>
         </div>
 
