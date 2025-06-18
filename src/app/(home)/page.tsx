@@ -9,7 +9,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
-    children: React.ReactElement<any, any>;
+    children: React.ReactElement;
   },
   ref: React.Ref<unknown>
 ) {
@@ -311,7 +311,7 @@ export default function Home() {
         <DialogTitle align="left">{"Get a Quote"}</DialogTitle>
         <Divider/>
         <DialogContent>
-          <HubspotForm />
+          <HubspotForm id="get_a_quote"/>
         </DialogContent>
       </Dialog>
     </div>

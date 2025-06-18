@@ -2,25 +2,21 @@
 
 import Image from "next/image";
 import { Header } from "@/components/Header";
-import { countries, ICountryData } from "countries-list";
+
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-  Button,
+ 
   CircularProgress,
   Dialog,
-  DialogActions,
+ 
   DialogContent,
-  DialogContentText,
+ 
   DialogTitle,
   Divider,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
+
   Slide,
-  TextField,
+  
   Tooltip,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
@@ -29,7 +25,7 @@ import { useRouter } from "next/navigation";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
-    children: React.ReactElement<any, any>;
+    children: React.ReactElement;
   },
   ref: React.Ref<unknown>
 ) {
@@ -48,26 +44,10 @@ export const GenerateVideoUI = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [age, setAge] = React.useState("");
-  const [loading,setLoading] = useState(false);
-  const [countryCode, setCountryCode] = useState("");
-  const handleChange = (code: string, name: string) => {
-    setCountryCode(code);
-    setAge(name);
-  };
-  console.log(age);
-  useEffect(() => {
-    sessionStorage.setItem("videoData","");
-    fetch("https://ipapi.co/json/")
-      .then((response) => response.json())
-      .then((data) => {
-        setAge(data.country_name);
-        setCountryCode(data?.country_calling_code);
-      })
-      .catch((err) => console.error(err));
-  }, []);
 
-  const generateVideo = async () => {+
+  const [loading,setLoading] = useState(false);
+
+  const generateVideo = async () => {
     setLoading(true);
     const params = {
       avatar_id: selectedAvatar ? selectedAvatar + 1 : 1,
