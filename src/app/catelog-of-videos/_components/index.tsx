@@ -35,28 +35,14 @@ export const Catalog = () => {
         </div>
         {/* Generate Button on top-right of the main image */}
         <div className="">
-          <div className="md:block hidden absolute md:top-29 md:right-20  height-30">
+          <div className="block  absolute md:top-29 md:right-10  height-30">
             <Link href="/generate-videos">
-              <Image
-                src="/Group32.png"
-                width={173}
-                height={50}
-                alt="generate-button"
-                className="cursor-pointer"
-              />
+             <button className="inline-flex gap-3 text-white text-[16px] font-medium px-3 py-1 justify-center rounded-[8px] shadow hover:opacity-90">
+            Generate Video
+          </button>
             </Link>
           </div>
-          <div className="md:hidden block absolute  top-34  right-4 height-30">
-            <Link href="/generate-videos">
-              <Image
-                src="/Group32.png"
-                width={130}
-                height={30}
-                alt="generate-button"
-                className="cursor-pointer"
-              />
-            </Link>
-          </div>
+        
         </div>
 
         {/* Main video with Generate Button */}
@@ -135,8 +121,8 @@ export const Catalog = () => {
 
         {/* Thumbnail grid */}
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 relative mb-10 md:px-10">
-          {[...Array(6)].map((_, i) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 relative mb-10 md:px-10">
+          {[...Array(8)].map((_, i) => (
             <div
               key={i}
               onClick={() => {
