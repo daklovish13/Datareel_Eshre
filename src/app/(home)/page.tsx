@@ -191,9 +191,9 @@ export default function Home() {
                       color: "transparent",
                     }}
                   >
-                    $1.50
+                    $0.50
                   </p>
-                  <p className="text-[14px] font-medium fbg">Per Video Cost</p>
+                  <p className="text-[14px] font-medium fbg">Video Cost Starting From</p>
                 </div>
               </div>
             </div>
@@ -308,7 +308,7 @@ export default function Home() {
         onClose={()=>setModalOpen(false)}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle align="left">{"Get a Quote"}</DialogTitle>
+        <DialogTitle align="left">{"Get a quote"}</DialogTitle>
         <Divider/>
         <DialogContent>
           <HubspotForm id="get_a_quotes"/>

@@ -76,7 +76,7 @@ export const GenerateVideoUI = () => {
         }
       });
   };
-
+  
   return (
     <div className="min-h-screen bg-[#f4f5ff] text-gray-700">
       <Dialog
@@ -95,13 +95,13 @@ export const GenerateVideoUI = () => {
         <DialogContent>
           {request?<HubspotForm id="custom_form" />:
           <div className="my-2">
-            <Typography> To Create your own custom avatar request a demo.</Typography>
+            <Typography> To create your own personalized video request a demo.</Typography>
             <div className="flex justify-center my-4">
                <button
                 onClick={()=>setRequest(true)}
                 className="mt-4 cursor-pointer  flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 !rounded-[8px] !transition hover:!bg-gray-100"
               >
-               Request a Demo
+               Request a demo
               </button>
             </div>
           </div>
@@ -362,13 +362,13 @@ export const GenerateVideoUI = () => {
         {/* Generate Buttons */}
         <div className="flex  items-center w-full">
           {/* Right Button */}
-          {selectedAvatar === null &&
-          selectedDisease === null &&
-          selectedVideoType === null &&
-          selectedLanguage === null ? (
+          {(selectedAvatar === null ||
+          selectedDisease === null ||
+          selectedVideoType === null ||
+          selectedLanguage === null )? (
             <Tooltip title="Please complete all selections: Avatar, Language, Video Type, and Disease.">
               <button className="flex items-center gap-3 ml-auto text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
-                {loading?<CircularProgress size={22} color="info"/>:"Generate"}
+                {loading?<CircularProgress size={22} style={{color:"white"}}/>:"Generate"}
                 <span>
                   <img
                     src="right_use.png"
@@ -381,7 +381,7 @@ export const GenerateVideoUI = () => {
           ) : (
             <div onClick={generateVideo} className="flex ml-auto">
               <button  className="flex items-center gap-3 ml-auto text-white text-[13px] font-bold px-6 py-3 rounded-[8px] shadow hover:opacity-90">
-                {loading?<CircularProgress size={22} color="info"/>:"Generate"}
+                {loading?<CircularProgress size={22} style={{color:"white"}}/>:"Generate"}
                 <span>
                   <img
                     src="right_use.png"
@@ -390,6 +390,7 @@ export const GenerateVideoUI = () => {
                   />
                 </span>
               </button>
+              
             </div>
           )}
         </div>
@@ -436,7 +437,7 @@ export const GenerateVideoUI = () => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle align="left">{"Book a Demo"}</DialogTitle>
+        <DialogTitle align="left">{"Book a demo"}</DialogTitle>
         <Divider />
         <DialogContent>
           <HubspotForm id="request_a_demo" />
