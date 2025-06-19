@@ -142,9 +142,9 @@ export const GeneratedVideoUI = () => {
                     color: "transparent",
                   }}
                 >
-                  $1.50
+                  $0.50
                 </p>
-                <p className="text-[14px] font-medium fbg">Per Video Cost</p>
+                <p className="text-[14px] font-medium fbg">Video Cost Starting From</p>
               </div>
             </div>
           </div>
