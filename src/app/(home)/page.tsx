@@ -68,7 +68,7 @@ export default function Home() {
             </p>
 
             <Link href="/catelog-of-videos">
-              <button className="rounded-md flex gap-4 justify-center text-[16px] font-medium mt-8 mx-auto w-[178px] py-2">
+              <button className="rounded-md cursor-pointer flex gap-4 justify-center text-[16px] font-medium mt-8 mx-auto w-[178px] py-2">
                 Start Demo{" "}
                 <div className="relative w-[15px] h-[15px] mt-1">
                   <Image
@@ -289,7 +289,7 @@ export default function Home() {
               <button
                 style={{ background: "white" }}
                 onClick={()=>setModalOpen(true)}
-                className="mt-4 !text-[#6864F4] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 !rounded-[8px] !transition hover:!bg-gray-100"
+                className="mt-4 !text-[#6864F4] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 cursor-pointer !rounded-[8px] !transition hover:!bg-gray-100"
               >
                 Get a quote
               </button>

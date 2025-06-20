@@ -95,7 +95,7 @@ export const GeneratedVideoUI = () => {
         </div>
 
         {/* Program Features */}
-        <div className="bg-white pb-8 rounded-lg shadow-lg  px-8">
+        <div className="bg-white pb-8 rounded-lg shadow-lg  md:px-8 px-4">
           <div className="py-6">
             <p className="text-[26px] font-bold fbg  text-center">
               Program Features

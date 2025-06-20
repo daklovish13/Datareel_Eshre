@@ -5,40 +5,134 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const Catalog = () => {
-  
-  
-  const videoArray=[
-    {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/British_Male_thumbnail.webp",video:"/videos/eshre_demo2.mp4",language:"English"},
-    {videoType:"Disease Explainer",diseaseType:"PCOD",tumbnail:"/Asian_Female_thumbnail.webp",video:"/videos/demo_video3.mp4",language:"French"},
-    {videoType:"Disease Explainer",diseaseType:"Teratozoospermia",tumbnail:"/US_Female_thumbnail.webp",video:"/videos/demo_video.mp4",language:"Spanish"},
-    {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/British_Male_thumbnail.webp",video:"/videos/eshre_demo2.mp4",language:"English"},
-    {videoType:"Disease Explainer",diseaseType:"PCOD",tumbnail:"/Asian_Female_thumbnail.webp",video:"/videos/demo_video3.mp4",language:"French"},
-    {videoType:"Disease Explainer",diseaseType:"Teratozoospermia",tumbnail:"/US_Female_thumbnail.webp",video:"/videos/demo_video.mp4",language:"Spanish"},
-    {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/British_Male_thumbnail.webp",video:"/videos/eshre_demo2.mp4",language:"English"},
-    {videoType:"Disease Explainer",diseaseType:"PCOD",tumbnail:"/Asian_Female_thumbnail.webp",video:"/videos/demo_video3.mp4",language:"French"},
-    {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/US_Female_thumbnail.webp",video:"/videos/demo_video.mp4",language:"Spanish"},
-    {videoType:"Disease Explainer",diseaseType:"Teratozoospermia",tumbnail:"/British_Male_thumbnail.webp",video:"/videos/eshre_demo2.mp4",language:"English"},
-    {videoType:"Disease Explainer",diseaseType:"Teratozoospermia",tumbnail:"/Asian_Female_thumbnail.webp",video:"/videos/demo_video3.mp4",language:"French"},
-    {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/US_Female_thumbnail.webp",video:"/videos/demo_video.mp4",language:"Spanish"},
-    {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/British_Male_thumbnail.webp",video:"/videos/eshre_demo2.mp4",language:"English"},
-    {videoType:"Disease Explainer",diseaseType:"PCOD",tumbnail:"/Asian_Female_thumbnail.webp",video:"/videos/demo_video3.mp4",language:"French"},
-    {videoType:"Disease Explainer",diseaseType:"PCOD",tumbnail:"/US_Female_thumbnail.webp",video:"/videos/demo_video.mp4",language:"Spanish"},
-    {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/British_Male_thumbnail.webp",video:"/videos/eshre_demo2.mp4",language:"English"},
-  ]
+  const videoArray = [
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Tubal Block",
+      tumbnail: "/British_Male_thumbnail.webp",
+      video: "/videos/eshre_demo2.mp4",
+      language: "English",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "PCOD",
+      tumbnail: "/Asian_Female_thumbnail.webp",
+      video: "/videos/demo_video3.mp4",
+      language: "French",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Teratozoospermia",
+      tumbnail: "/US_Female_thumbnail.webp",
+      video: "/videos/demo_video.mp4",
+      language: "Spanish",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Tubal Block",
+      tumbnail: "/British_Male_thumbnail.webp",
+      video: "/videos/eshre_demo2.mp4",
+      language: "English",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "PCOD",
+      tumbnail: "/Asian_Female_thumbnail.webp",
+      video: "/videos/demo_video3.mp4",
+      language: "French",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Teratozoospermia",
+      tumbnail: "/US_Female_thumbnail.webp",
+      video: "/videos/demo_video.mp4",
+      language: "Spanish",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Tubal Block",
+      tumbnail: "/British_Male_thumbnail.webp",
+      video: "/videos/eshre_demo2.mp4",
+      language: "English",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "PCOD",
+      tumbnail: "/Asian_Female_thumbnail.webp",
+      video: "/videos/demo_video3.mp4",
+      language: "French",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Tubal Block",
+      tumbnail: "/US_Female_thumbnail.webp",
+      video: "/videos/demo_video.mp4",
+      language: "Spanish",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Teratozoospermia",
+      tumbnail: "/British_Male_thumbnail.webp",
+      video: "/videos/eshre_demo2.mp4",
+      language: "English",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Teratozoospermia",
+      tumbnail: "/Asian_Female_thumbnail.webp",
+      video: "/videos/demo_video3.mp4",
+      language: "French",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Tubal Block",
+      tumbnail: "/US_Female_thumbnail.webp",
+      video: "/videos/demo_video.mp4",
+      language: "Spanish",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Tubal Block",
+      tumbnail: "/British_Male_thumbnail.webp",
+      video: "/videos/eshre_demo2.mp4",
+      language: "English",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "PCOD",
+      tumbnail: "/Asian_Female_thumbnail.webp",
+      video: "/videos/demo_video3.mp4",
+      language: "French",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "PCOD",
+      tumbnail: "/US_Female_thumbnail.webp",
+      video: "/videos/demo_video.mp4",
+      language: "Spanish",
+    },
+    {
+      videoType: "Disease Explainer",
+      diseaseType: "Tubal Block",
+      tumbnail: "/British_Male_thumbnail.webp",
+      video: "/videos/eshre_demo2.mp4",
+      language: "English",
+    },
+  ];
   const [selectedVideo, setSelectedVideo] = useState({
     video: videoArray[0]?.video || "",
     index: 0,
-    data:{...videoArray[0]}
+    data: { ...videoArray[0] },
   });
   const [videoList, setVideoList] = useState(videoArray.slice(0, 8));
-  const [show,setShow] = useState(false);
+  const [show, setShow] = useState(false);
   return (
     <>
       <Header />
-      <div className="bg-[#EEF2FE] p-6 sm:p-10">
+      <div className="bg-[#EEF2FE] p-4 md:p-6">
         <div className="flex gap-1  md:mb-10 mb-14">
           <div className="mt-1.5">
-            <Link href="/" className="cursor-pointer">
+            <Link href="/" className="cursor-pointer md:block hidden">
               <Image
                 src="/back_arrow_desktop.png"
                 width={30}
@@ -46,21 +140,28 @@ export const Catalog = () => {
                 alt="back-button"
               />
             </Link>
+            <Link href="/" className="cursor-pointer md:hidden block">
+              <Image
+                src="/back_arrow_desktop.png"
+                width={22}
+                height={22}
+                alt="back-button"
+              />
+            </Link>
           </div>
-          <h2 className="md:text-[27px] text-[24px] font-bold  fbg text-left">
+          <div className="lg:text-[27px] text-[22px]  sm:text-[20px] font-bold  fbg text-left">
             Catalogue of AI Videos
-          </h2>
+          </div>
         </div>
         {/* Generate Button on top-right of the main image */}
         <div className="">
-          <div className="block  absolute md:top-29 md:right-10 top-[8.5rem] right-[1rem]  height-30">
+          <div className="block  absolute md:top-24 md:right-5 top-[8rem] right-[1rem]  height-30">
             <Link href="/generate-videos">
-             <button className="inline-flex gap-3 text-white text-[16px] font-medium px-3 py-1 justify-center rounded-[8px] shadow hover:opacity-90">
-            Generate Video
-          </button>
+              <button className="inline-flex cursor-pointer gap-3 text-white text-[16px] font-medium px-3 py-1 justify-center rounded-[8px] shadow hover:opacity-90">
+                Generate Video
+              </button>
             </Link>
           </div>
-        
         </div>
 
         {/* Main video with Generate Button */}
@@ -76,7 +177,7 @@ export const Catalog = () => {
         <div className="text-left mb-8 relative">
           <div className="flex gap-2">
             <p className="text-[13px] font-bold text-[#6B63F4]">
-             {selectedVideo?.data?.videoType || "Disease Explainer"}
+              {selectedVideo?.data?.videoType || "Disease Explainer"}
             </p>
             <p className="text-[13px] font-bold text-[#747474]">
               |&nbsp; {selectedVideo?.data?.diseaseType || "Tubal Block"}
@@ -140,11 +241,11 @@ export const Catalog = () => {
             <div
               key={i}
               onClick={() => {
-                setSelectedVideo({ video: item?.video, index: i,data:item });
+                setSelectedVideo({ video: item?.video, index: i, data: item });
               }}
               className={`${
                 selectedVideo?.index === i
-                  ? "shadow-md p-2 border-2 rounded-lg border-[#6B63F4] cursor-pointer"
+                  ? "shadow-md md:p-2 p-1 border-2 rounded-lg border-[#6B63F4] cursor-pointer"
                   : "cursor-pointer"
               }`}
             >
@@ -187,15 +288,21 @@ export const Catalog = () => {
           ))}
         </div>
         <div className="text-center ">
-          <button onClick={()=>{
-            setShow(!show);
-            if(show){
-              setVideoList(videoArray.slice(0, 8));
-            }else{
-              setVideoList([...videoList,...videoArray.slice(8,videoArray.length)])
-            }
-            }} className="inline-flex gap-3 text-white text-[14px] font-medium cursor-pointer px-4 py-2 justify-center rounded-[8px] shadow hover:opacity-90">
-            {show?"Show Less":"Show More"}
+          <button
+            onClick={() => {
+              setShow(!show);
+              if (show) {
+                setVideoList(videoArray.slice(0, 8));
+              } else {
+                setVideoList([
+                  ...videoList,
+                  ...videoArray.slice(8, videoArray.length),
+                ]);
+              }
+            }}
+            className="inline-flex gap-3 text-white text-[14px] font-medium cursor-pointer px-4 py-2 justify-center rounded-[8px] shadow hover:opacity-90"
+          >
+            {show ? "Show Less" : "Show More"}
           </button>
         </div>
       </div>
