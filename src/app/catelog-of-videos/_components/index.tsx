@@ -5,11 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const Catalog = () => {
-  const video = [
-    "/videos/demo_video.mp4",
-    "/videos/eshre_demo2.mp4",
-    "/videos/demo_video3.mp4",
-  ];
+  
   
   const videoArray=[
     {videoType:"Disease Explainer",diseaseType:"Tubal Block",tumbnail:"/British_Male_thumbnail.webp",video:"/videos/eshre_demo2.mp4",language:"English"},
