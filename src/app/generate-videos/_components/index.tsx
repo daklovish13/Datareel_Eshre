@@ -158,7 +158,7 @@ export const GenerateVideoUI = () => {
             </Link>
           </div>
           <div className="lg:text-[27px] text-[22px]  sm:text-[20px] font-bold  fbg text-left">
-            Generate Videos
+            Generate Video
           </div>
         </div>
         {/* Progress Indicator */}
