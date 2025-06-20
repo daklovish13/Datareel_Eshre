@@ -4,12 +4,24 @@ import { Header } from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 
+type VideoData = {
+  video_url: string;
+  videoType:string;
+  diseaseType:string;
+  language:string;
+}
 export const GeneratedVideoUI = () => {
-  const [video, setVideo] = React.useState<string>("");
+  const [video, setVideo] = React.useState<VideoData>({
+    video_url: "",
+    videoType: "",
+    diseaseType: "",
+    language: "",
+  });
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedVideo = sessionStorage.getItem("videoData") || "";
+      const videoData = sessionStorage.getItem("videoData");
+      const storedVideo = videoData ? JSON.parse(videoData) : "";
       setVideo(storedVideo);
       console.log(storedVideo);
     }
@@ -39,7 +51,7 @@ export const GeneratedVideoUI = () => {
         <div className="rounded-lg overflow-hidden shadow-md mb-1">
           <video
             className="w-full md:h-[515px] h-44"
-            src={video}
+            src={video?.video_url}
             controls
           ></video>
         </div>
@@ -48,20 +60,19 @@ export const GeneratedVideoUI = () => {
           <div className=" text-left mb-8">
             <div className="flex gap-2">
               <p className="text-[13px] font-bold text-[#6B63F4]">
-                Report Explainer
+                {video?.videoType || "Disease Explainer"}
               </p>
               <p className="text-[13px] font-bold text-[#747474]">
                 {" "}
-                |&nbsp; Endocrinologist
+                |&nbsp; {video?.diseaseType || "Tubal Block"}
               </p>
             </div>
-            <p className="text-[11px] font-light text-[#373737]">
-              Check out this example for Endocrinology. Just click on the marker
-              to start focusing on it.
-            </p>
+            <p className="text-[13px] font-medium text-[#747474]">
+              {video?.language || "English"}
+              </p>
           </div>
-          <div className=" absolute right-0 -top-1 mb-2">
-            <a href={video} target="_blank" download={`video.mp4`}>
+          {/* <div className=" absolute right-0 -top-1 mb-2">
+            <a href={video?.video_url} target="_blank" download={`video.mp4`}>
               <Image
                 src="/download_button.png"
                 alt="Download"
@@ -70,8 +81,8 @@ export const GeneratedVideoUI = () => {
                 className="hover:opacity-80 cursor-pointer md:block hidden"
               />
             </a>
-            {/* Mobile download button */}
-            <a href={video} download={`video.mp4`}>
+            
+            <a href={video?.video_url} download={`video.mp4`}>
               <Image
                 src="/download_button.png"
                 alt="Download"
@@ -80,7 +91,7 @@ export const GeneratedVideoUI = () => {
                 className="hover:opacity-80 cursor-pointer md:hidden block"
               />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Program Features */}
