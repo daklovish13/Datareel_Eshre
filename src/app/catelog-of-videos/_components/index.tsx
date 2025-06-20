@@ -47,13 +47,13 @@ export const Catalog = () => {
               />
             </Link>
           </div>
-          <h2 className="text-[27px] font-bold  fbg text-left">
+          <h2 className="md:text-[27px] text-[24px] font-bold  fbg text-left">
             Catalogue of AI Videos
           </h2>
         </div>
         {/* Generate Button on top-right of the main image */}
         <div className="">
-          <div className="block  absolute md:top-29 md:right-10  height-30">
+          <div className="block  absolute md:top-29 md:right-10 top-[8.5rem] right-[1rem]  height-30">
             <Link href="/generate-videos">
              <button className="inline-flex gap-3 text-white text-[16px] font-medium px-3 py-1 justify-center rounded-[8px] shadow hover:opacity-90">
             Generate Video

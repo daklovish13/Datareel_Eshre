@@ -42,7 +42,7 @@ export const GeneratedVideoUI = () => {
               />
             </Link>
           </div>
-          <h2 className="text-[27px] font-bold  fbg text-left">
+          <h2 className="md:text-[27px] text-[24px] font-bold  fbg text-left">
             Generated Videos
           </h2>
         </div>
