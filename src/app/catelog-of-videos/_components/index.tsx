@@ -155,7 +155,7 @@ export const Catalog = () => {
         </div>
         {/* Generate Button on top-right of the main image */}
         <div className="">
-          <div className="block  absolute md:top-[2rem] md:right-5 top-[8rem] right-[1rem]  height-30">
+          <div className="block  absolute md:top-[2rem] md:right-5 top-[1.4rem] right-[1rem]  height-30">
             <Link href="/generate-videos">
               <button className="inline-flex cursor-pointer gap-3 text-white text-[16px] font-medium px-3 py-1 justify-center rounded-[8px] shadow hover:opacity-90">
                 Generate Video

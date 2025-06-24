@@ -43,7 +43,7 @@ export const Header = () => {
           src="/logo.jpg"
           alt="Company Logo"
           fill
-          className="!h-[12rem] mt-[-4rem] !w-auto md:ml-[-1.8rem]"
+          className="!h-[12rem] mt-[-4rem] !w-auto md:ml-[-1.8rem] ml-[-.6rem]"
         />
       </div>
       <div className="flex gap-2">
