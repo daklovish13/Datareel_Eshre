@@ -43,8 +43,15 @@ export default function Home() {
         className="!bg-no-repeat pb-8 relative bg-size md:px-8 px-2 items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]"
       >
         <main className=" md:pt-10 pt-10">
+           <section className="hero ">
+            <div className="text-[16px] my-4  font-bold" style={{ lineHeight: "20px" }}>
+              ESHRE 2025 <br className="md:block hidden" />
+               Interactive Demo Station
+            </div>
+            </section>
+
           <button className="px-4 text-[10px] font-semibold py-1 !rounded-2xl">
-            #ONE AI VIDEO GENERATION PLATFORM FOR INDIRA IVF
+            #1 AI VIDEO GENERATION PLATFORM FOR IVF CLINICS
           </button>
 
           <section className="hero ">
@@ -53,7 +60,7 @@ export default function Home() {
               Dynamic Video Stories
             </div>
 
-            <p className="text-[#885CFA] text-[18px] font-medium mb-4">
+            <p className="text-[#2463e9] text-[18px] font-medium mb-4">
               Personalized Healthcare Video Communication
             </p>
 
@@ -102,7 +109,7 @@ export default function Home() {
               {
                 icon: "/salary.png",
                 title: "Cost Effective",
-                desc: "$0.50 per video vs traditional production",
+                desc: "starting from $0.50 per video",
               },
             ].map((feature, i) => (
               <div
@@ -151,13 +158,8 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row   pt-1 pb-4 md:justify-around items-center text-center w-full">
                 <div className="md:pb-0 pb-2">
                   <p
-                    className="bg-clip-text text-transparent font-bold text-[30px]"
-                    style={{
-                      background:
-                        "linear-gradient(to left, #6864F4 30%, #855AE9 40%)",
-                      WebkitBackgroundClip: "text",
-                      color: "transparent",
-                    }}
+                    className="bg-clip-text  font-bold text-[30px] text-[#2463e9]"
+                    
                   >
                     78%
                   </p>
@@ -168,13 +170,8 @@ export default function Home() {
                 <hr className="w-full text-gray-400 my-2 md:hidden block" />
                 <div className="md:border-r-2 md:border-l-2  md:py-0 py-3  px-32 border-[#CCCCCC]">
                   <p
-                    className="bg-clip-text text-transparent font-bold text-[30px]"
-                    style={{
-                      background:
-                        "linear-gradient(to left, #6864F4 30%, #855AE9 40%)",
-                      WebkitBackgroundClip: "text",
-                      color: "transparent",
-                    }}
+                    className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
+                    
                   >
                     90%
                   </p>
@@ -183,14 +180,8 @@ export default function Home() {
                 <hr className="w-full text-gray-400 my-2 md:hidden block" />
                 <div className="md:pt-0 pt-2">
                   <p
-                    className="bg-clip-text text-transparent font-bold text-[30px]"
-                    style={{
-                      background:
-                        "linear-gradient(to left, #6864F4 30%, #855AE9 40%)",
-                      WebkitBackgroundClip: "text",
-                      color: "transparent",
-                    }}
-                  >
+                    className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
+                   >
                     $0.50
                   </p>
                   <p className="text-[14px] font-medium fbg">Video Cost Starting From</p>
@@ -266,7 +257,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative w-full md:px-0 px-4 pb-6">
-          <div className="bg-[#6C63FF] px-8 md:py-0 py-4 mt-10 text-white rounded-xl  md:flex block  items-center md:gap-6 gap-2  w-full">
+          <div className="bg-[#2463e9] px-8 md:py-0 py-4 mt-10 text-white rounded-xl  md:flex block  items-center md:gap-6 gap-2  w-full">
             {/* Left Side Illustration */}
             <div className=" flex justify-center">
               <Image
@@ -289,7 +280,7 @@ export default function Home() {
               <button
                 style={{ background: "white" }}
                 onClick={()=>setModalOpen(true)}
-                className="mt-4 !text-[#6864F4] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 cursor-pointer !rounded-[8px] !transition hover:!bg-gray-100"
+                className="mt-4 !text-[#2463e9] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 cursor-pointer !rounded-[8px] !transition hover:!bg-gray-100"
               >
                 Get a quote
               </button>

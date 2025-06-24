@@ -129,7 +129,7 @@ export const Catalog = () => {
   return (
     <>
       <Header />
-      <div className="bg-[#EEF2FE] p-4 md:p-6">
+      <div className="bg-[#EEF2FE] p-4 md:p-6 relative z-50">
         <div className="flex gap-1  md:mb-10 mb-14">
           <div className="mt-1.5">
             <Link href="/" className="cursor-pointer md:block hidden">
@@ -150,12 +150,12 @@ export const Catalog = () => {
             </Link>
           </div>
           <div className="lg:text-[27px] text-[22px]  sm:text-[20px] font-bold  fbg text-left">
-            Catalogue of AI Videos
+            AI Video Library
           </div>
         </div>
         {/* Generate Button on top-right of the main image */}
         <div className="">
-          <div className="block  absolute md:top-24 md:right-5 top-[8rem] right-[1rem]  height-30">
+          <div className="block  absolute md:top-[2rem] md:right-5 top-[8rem] right-[1rem]  height-30">
             <Link href="/generate-videos">
               <button className="inline-flex cursor-pointer gap-3 text-white text-[16px] font-medium px-3 py-1 justify-center rounded-[8px] shadow hover:opacity-90">
                 Generate Video
@@ -176,7 +176,7 @@ export const Catalog = () => {
 
         <div className="text-left mb-8 relative">
           <div className="flex gap-2">
-            <p className="text-[13px] font-bold text-[#6B63F4]">
+            <p className="text-[13px] font-bold text-[#2463e9]">
               {selectedVideo?.data?.videoType || "Disease Explainer"}
             </p>
             <p className="text-[13px] font-bold text-[#747474]">
@@ -245,7 +245,7 @@ export const Catalog = () => {
               }}
               className={`${
                 selectedVideo?.index === i
-                  ? "shadow-md md:p-2 p-1 border-2 rounded-lg border-[#6B63F4] cursor-pointer"
+                  ? "shadow-md md:p-2 p-1 border-2 rounded-lg border-[#2463e9] cursor-pointer"
                   : "cursor-pointer"
               }`}
             >
@@ -257,13 +257,13 @@ export const Catalog = () => {
                 ></video> */}
                 <img
                   src={item?.tumbnail}
-                  className="md:h-[140px] h-[100px] w-full "
+                  className="object-contain w-full "
                 />
                 <div
                   style={{
                     background: "url(/play_button.png)",
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: "15% 25%",
+                    backgroundSize: "10% 15%",
                     backgroundColor: "#00000080",
                     backgroundPosition: "center",
                   }}

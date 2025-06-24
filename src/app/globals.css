@@ -20,7 +20,7 @@
 }
 
 button{
-  background: linear-gradient(90deg, #6864F4 0%, #855AE9 100%);
+  background:#2463e9;
   border-radius: 8px;
   color:white;
 }
@@ -29,7 +29,7 @@ button{
 }
 
 .bg-cutom-color{
-  background: linear-gradient(90deg, #6864F4 0%, #855AE9 100%);
+  background: #2463e9;
 }
 body {
   font-family: Arial, sans-serif;
@@ -42,7 +42,7 @@ body {
 }
 
 .bg-custom-light{
-  background: rgba(104, 100, 244, 1);
+  background: #2463e9;
   opacity: 20%;
 }
 

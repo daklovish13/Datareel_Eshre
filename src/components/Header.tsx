@@ -37,13 +37,13 @@ export const Header = () => {
           <HubspotForm id="get_a_quote"/>
         </DialogContent>
       </Dialog>
-    <header className="bg-white flex  justify-between md:px-8 md:pr-4 pr-2  py-4 w-full text-white  h-[70px]">
-      <div className="relative w-[135px] h-[40px] ">
+    <header className="bg-white flex  justify-between  md:pr-4 pr-2  py-4 w-full text-white  h-[70px]">
+      <div className="  ">
         <Image
-          src="/Logo1.png"
+          src="/logo.jpg"
           alt="Company Logo"
           fill
-          className="object-contain bg-[#2463e9]"
+          className="!h-[12rem] mt-[-4rem] !w-auto md:ml-[-1.8rem]"
         />
       </div>
       <div className="flex gap-2">
@@ -57,12 +57,7 @@ export const Header = () => {
         </button>}
 
 
-        <button className="h-fit p-1 md:px-6 ">
-          <div className="pb-0 mb-0 text-[13px]">ESHRE 2025</div>
-          <div className="text-[10px] -mt-1  font-light">
-            Interactive Demo Station
-          </div>
-        </button>
+        
       </div>
      
     </header>

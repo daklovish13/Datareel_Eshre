@@ -30,7 +30,7 @@ export const GeneratedVideoUI = () => {
   return (
     <>
       <Header />
-      <div className="bg-[#EEF2FE] p-6 sm:p-10">
+      <div className="bg-[#EEF2FE] p-6 sm:p-10 relative z-50">
         <div className="flex gap-1 mb-4">
           <div className="mt-1.5">
             <Link href="/generate-videos" className="cursor-pointer">
@@ -59,7 +59,7 @@ export const GeneratedVideoUI = () => {
         <div className="flex mt-4 justify-between relative">
           <div className=" text-left mb-8">
             <div className="flex gap-2">
-              <p className="text-[13px] font-bold text-[#6B63F4]">
+              <p className="text-[13px] font-bold text-[#2463e9]">
                 {video?.videoType || "Disease Explainer"}
               </p>
               <p className="text-[13px] font-bold text-[#747474]">
@@ -113,13 +113,8 @@ export const GeneratedVideoUI = () => {
             <div className="flex flex-col sm:flex-row   pt-1 pb-4 md:justify-around items-center text-center w-full">
               <div className="md:pb-0 pb-2">
                 <p
-                  className="bg-clip-text text-transparent font-bold text-[30px]"
-                  style={{
-                    background:
-                      "linear-gradient(to left, #6864F4 30%, #855AE9 40%)",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
+                  className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
+                 
                 >
                   78%
                 </p>
@@ -130,13 +125,8 @@ export const GeneratedVideoUI = () => {
               <hr className="w-full text-gray-400 my-2 md:hidden block" />
               <div className="md:border-r-2 md:border-l-2  md:py-0 py-3  px-32 border-[#CCCCCC]">
                 <p
-                  className="bg-clip-text text-transparent font-bold text-[30px]"
-                  style={{
-                    background:
-                      "linear-gradient(to left, #6864F4 30%, #855AE9 40%)",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
+                  className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
+                
                 >
                   90%
                 </p>
@@ -145,13 +135,8 @@ export const GeneratedVideoUI = () => {
               <hr className="w-full text-gray-400 my-2 md:hidden block" />
               <div className="md:pt-0 pt-2">
                 <p
-                  className="bg-clip-text text-transparent font-bold text-[30px]"
-                  style={{
-                    background:
-                      "linear-gradient(to left, #6864F4 30%, #855AE9 40%)",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
+                  className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
+                  
                 >
                   $0.50
                 </p>
