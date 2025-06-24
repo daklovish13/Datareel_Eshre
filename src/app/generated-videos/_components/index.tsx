@@ -3,14 +3,18 @@ import React from "react";
 import { Header } from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
-
+import { Box, Dialog, DialogContent, Modal, Tooltip } from "@mui/material";
+import { ShareSocial } from "react-share-social";
 type VideoData = {
   video_url: string;
-  videoType:string;
-  diseaseType:string;
-  language:string;
-}
+  videoType: string;
+  diseaseType: string;
+  language: string;
+};
 export const GeneratedVideoUI = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [video, setVideo] = React.useState<VideoData>({
     video_url: "",
     videoType: "",
@@ -29,6 +33,19 @@ export const GeneratedVideoUI = () => {
 
   return (
     <>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <DialogContent className="">
+          <ShareSocial
+            url={video?.video_url}
+            socialTypes={["telegram","facebook", "twitter", "whatsapp", "linkedin"]}
+          />
+        </DialogContent>
+      </Dialog>
       <Header />
       <div className="bg-[#EEF2FE] p-6 sm:p-10 relative z-50">
         <div className="flex gap-1 mb-4">
@@ -69,7 +86,12 @@ export const GeneratedVideoUI = () => {
             </div>
             <p className="text-[13px] font-medium text-[#747474]">
               {video?.language || "English"}
-              </p>
+            </p>
+          </div>
+          <div>
+            {/* <Tooltip title="Share" placement="top"> */}
+              <button onClick={handleOpen} className="px-2 cursor-pointer py-1 text-sm font-medium">Share</button>
+            {/* </Tooltip> */}
           </div>
           {/* <div className=" absolute right-0 -top-1 mb-2">
             <a href={video?.video_url} target="_blank" download={`video.mp4`}>
@@ -112,10 +134,7 @@ export const GeneratedVideoUI = () => {
             </div>
             <div className="flex flex-col sm:flex-row   pt-1 pb-4 md:justify-around items-center text-center w-full">
               <div className="md:pb-0 pb-2">
-                <p
-                  className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
-                 
-                >
+                <p className="bg-clip-text text-[#2463e9] font-bold text-[30px]">
                   78%
                 </p>
                 <p className="text-[14px] font-medium fbg">
@@ -124,23 +143,19 @@ export const GeneratedVideoUI = () => {
               </div>
               <hr className="w-full text-gray-400 my-2 md:hidden block" />
               <div className="md:border-r-2 md:border-l-2  md:py-0 py-3  px-32 border-[#CCCCCC]">
-                <p
-                  className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
-                
-                >
+                <p className="bg-clip-text text-[#2463e9] font-bold text-[30px]">
                   90%
                 </p>
                 <p className="text-[14px] font-medium fbg">Cost Reduction</p>
               </div>
               <hr className="w-full text-gray-400 my-2 md:hidden block" />
               <div className="md:pt-0 pt-2">
-                <p
-                  className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
-                  
-                >
+                <p className="bg-clip-text text-[#2463e9] font-bold text-[30px]">
                   $0.50
                 </p>
-                <p className="text-[14px] font-medium fbg">Video Cost Starting From</p>
+                <p className="text-[14px] font-medium fbg">
+                  Video Cost Starting From
+                </p>
               </div>
             </div>
           </div>
