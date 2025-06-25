@@ -3,35 +3,21 @@ import React from "react";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogTitle, Divider } from "@mui/material";
 import { ShareSocial } from "react-share-social";
-type VideoData = {
-  video_url: string;
-  videoType: string;
-  diseaseType: string;
-  language: string;
-};
 type GeneratedVideoUIProps = {
   setShow: (show: boolean) => void;
+  video: {
+    video_url: string;
+    videoType?: string;
+    diseaseType?: string;
+    language?: string;
+    // Add other properties as needed
+  };
 };
 
-export const GeneratedVideoUI = ({ setShow }: GeneratedVideoUIProps) => {
+export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
-  const [video, setVideo] = React.useState<VideoData>({
-    video_url: "",
-    videoType: "",
-    diseaseType: "",
-    language: "",
-  });
-
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      const videoData = sessionStorage.getItem("videoData");
-      const storedVideo = videoData ? JSON.parse(videoData) : "";
-      setVideo(storedVideo);
-      console.log(storedVideo);
-    }
-  }, []);
-
+console.log(video)
   return (
     <>
       <Dialog

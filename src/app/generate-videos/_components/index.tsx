@@ -38,7 +38,7 @@ export const GenerateVideoUI = () => {
   const [open, setOpen] = useState(false);
   const [request, setRequest] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [video, setVideo] = useState<{ video_url: string; videoType?: string; diseaseType?: string; language?: string }>({ video_url: "" });
   const avatarArray = [
     { name: "Jonathan", path: "/British_Male_thumbnail.webp" },
     { name: "Sophia", path: "/US_Female_thumbnail.webp" },
@@ -92,6 +92,7 @@ export const GenerateVideoUI = () => {
             text: "Currently, the video is not available. Please try again later or select a different option.!",
           });
         } else {
+          setVideo({ ...result, ...result?.video_data });
           sessionStorage.setItem(
             "videoData",
             JSON.stringify({ ...result, ...result?.video_data })
@@ -111,7 +112,7 @@ export const GenerateVideoUI = () => {
     <>
       <Header />
       <div className={`${show ? "block" : "hidden"}`}>
-        <GeneratedVideoUI setShow={setShow} />
+        <GeneratedVideoUI setShow={setShow} video={video} />
       </div>
       <div
         className={`min-h-screen bg-[#f4f5ff] text-gray-700 z-50 relative ${
@@ -212,7 +213,7 @@ export const GenerateVideoUI = () => {
                 <div className="w-full h-2 bg-gray-200 rounded-full mb-1">
                   <div
                     className="h-full bg-cutom-color rounded-full transition-all duration-500 ease-in-out"
-                    style={{ width: `${progressPercent-.5}%` }}
+                    style={{ width: `${progressPercent - 0.5}%` }}
                   ></div>
                 </div>
               );
