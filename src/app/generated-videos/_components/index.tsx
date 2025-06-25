@@ -3,7 +3,7 @@ import React from "react";
 import { Header } from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
-import {  Dialog, DialogContent,  } from "@mui/material";
+import {  Dialog, DialogContent, DialogTitle, Divider,  } from "@mui/material";
 import { ShareSocial } from "react-share-social";
 type VideoData = {
   video_url: string;
@@ -39,8 +39,11 @@ export const GeneratedVideoUI = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <DialogContent className="">
-          <ShareSocial
+        <DialogTitle align="left">Share Video</DialogTitle>
+        <Divider className="relative z-50"/>
+        <DialogContent className="-mt-[2rem] ">
+          <ShareSocial 
+            style={{backgroundColor: "blue"}}
             url={video?.video_url}
             socialTypes={["telegram","facebook", "twitter", "whatsapp", "linkedin"]}
           />

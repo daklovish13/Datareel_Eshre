@@ -1,0 +1,261 @@
+[
+    
+
+     {
+        "avatar_id": 1,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 1,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "PCOD",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 1,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "Teratozoospermia",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    }
+    ,
+     {
+        "avatar_id": 1,
+        "language": "English",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 1,
+        "language": "English",
+        "video_type": "Report Explainer",
+        "disease": "Teratozoospermia",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+    {
+        "avatar_id": 1,
+        "language": "English",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+
+    {
+        "avatar_id": 2,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 2,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "PCOD",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 2,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "Teratozoospermia",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    }
+    ,
+     {
+        "avatar_id": 2,
+        "language": "English",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 2,
+        "language": "English",
+        "video_type": "Report Explainer",
+        "disease": "Teratozoospermia",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+    {
+        "avatar_id": 2,
+        "language": "English",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 3,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 3,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "PCOD",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 3,
+        "language": "English",
+        "video_type": "Disease Explainer",
+        "disease": "Teratozoospermia",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    }
+    ,
+     {
+        "avatar_id": 3,
+        "language": "English",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 3,
+        "language": "English",
+        "video_type": "Report Explainer",
+        "disease": "Teratozoospermia",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+    {
+        "avatar_id": 3,
+        "language": "English",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+      {
+        "avatar_id": 1,
+        "language": "French",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 1,
+        "language": "French",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 1,
+        "language": "French",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 2,
+        "language": "French",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 2,
+        "language": "French",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 2,
+        "language": "French",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 3,
+        "language": "French",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 3,
+        "language": "French",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 3,
+        "language": "French",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+    {
+        "avatar_id": 1,
+        "language": "Spanish",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 1,
+        "language": "Spanish",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 1,
+        "language": "Spanish",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 2,
+        "language": "Spanish",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 2,
+        "language": "Spanish",
+        "video_type": "Report Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+       {
+        "avatar_id": 2,
+        "language": "Spanish",
+        "video_type": "Educational Videos",
+        "disease": "Stimulation",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+     {
+        "avatar_id": 3,
+        "language": "Spanish",
+        "video_type": "Disease Explainer",
+        "disease": "Tubal Block",
+        "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+    },
+         {
+          "avatar_id": 3,
+          "language": "Spanish",
+          "video_type": "Report Explainer",
+          "disease": "Tubal Block",
+          "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+     },
+         {
+          "avatar_id": 3,
+          "language": "Spanish",
+          "video_type": "Educational Videos",
+          "disease": "Stimulation",
+          "video_url": "https://datareel-eshre-backend-89ex.onrender.com/static/ehsre_demo.mp4"
+     }
+    ]
+

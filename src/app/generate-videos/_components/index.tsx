@@ -79,7 +79,7 @@ export const GenerateVideoUI = () => {
 
     const url = process.env.NEXT_PUBLIC_API_URL || "https://api.example.com";
     // const url = "http://127.0.0.1:8000"
-    fetch(`${url}/get-video-id`, {
+    fetch(`/api/videos`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(params),
@@ -87,7 +87,7 @@ export const GenerateVideoUI = () => {
       .then((res) => res.json())
       .then((result) => {
         setLoading(false);
-        if (result?.detail) {
+        if (result?.message) {
           // alert(result?.detail);
           Swal.fire({
             icon: "error",
@@ -122,7 +122,7 @@ export const GenerateVideoUI = () => {
             setRequest(false);
           }}
         >
-          <DialogTitle align="left">{"Custom Video Request"}</DialogTitle>
+          <DialogTitle align="center">{"Design Your Own Video Story"}</DialogTitle>
           <Divider />
           <DialogContent>
             <div className={`${request ? "block" : "hidden"}`}>
@@ -130,7 +130,7 @@ export const GenerateVideoUI = () => {
             </div>
             <div className={`my-2 ${request ? "hidden" : "block"}`}>
               <Typography>
-                To create your own personalized video request a demo.
+                Your video, your way — pick an avatar, language, style, and topic. Get a personalized demo today
               </Typography>
               <div className="flex justify-center my-4">
                 <button
