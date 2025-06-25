@@ -2,7 +2,7 @@
 
 import data from './data.json';
 
-export async function POST(request:any) {
+export async function POST(request: Request) {
   try {
     const body = await request.json();
 
@@ -27,9 +27,13 @@ export async function POST(request:any) {
       headers: { "Content-Type": "application/json" }
     });
 
-  } catch (error:any) {
+  } catch (error: unknown) {
+    let errorMessage = "Unknown error";
+    if (error && typeof error === "object" && "message" in error) {
+      errorMessage = (error as { message: string }).message;
+    }
     return new Response(
-      JSON.stringify({ message: "Internal server error", error: error.message }),
+      JSON.stringify({ message: "Internal server error", error: errorMessage }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

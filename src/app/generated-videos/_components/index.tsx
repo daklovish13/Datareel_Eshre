@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import { Header } from "@/components/Header";
 import Image from "next/image";
-import Link from "next/link";
-import {  Dialog, DialogContent, DialogTitle, Divider,  } from "@mui/material";
+import { Dialog, DialogContent, DialogTitle, Divider } from "@mui/material";
 import { ShareSocial } from "react-share-social";
 type VideoData = {
   video_url: string;
@@ -11,9 +9,12 @@ type VideoData = {
   diseaseType: string;
   language: string;
 };
-export const GeneratedVideoUI = () => {
+type GeneratedVideoUIProps = {
+  setShow: (show: boolean) => void;
+};
+
+export const GeneratedVideoUI = ({ setShow }: GeneratedVideoUIProps) => {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [video, setVideo] = React.useState<VideoData>({
     video_url: "",
@@ -40,29 +41,39 @@ export const GeneratedVideoUI = () => {
         aria-describedby="modal-modal-description"
       >
         <DialogTitle align="left">Share Video</DialogTitle>
-        <Divider className="relative z-50"/>
+        <Divider className="relative z-50" />
         <DialogContent className="-mt-[2rem] ">
-          <ShareSocial 
-            style={{backgroundColor: "blue"}}
+          <ShareSocial
+            style={{ backgroundColor: "blue" }}
             url={video?.video_url}
-            socialTypes={["telegram","facebook", "twitter", "whatsapp", "linkedin"]}
+            socialTypes={[
+              "telegram",
+              "facebook",
+              "twitter",
+              "whatsapp",
+              "linkedin",
+            ]}
           />
         </DialogContent>
       </Dialog>
-      <Header />
       <div className="bg-[#EEF2FE] p-6 sm:p-10 relative z-50">
         <div className="flex gap-1 mb-4">
           <div className="mt-1.5">
-            <Link href="/generate-videos" className="cursor-pointer">
+            <div
+              onClick={() => {
+                setShow(false);
+              }}
+              className="cursor-pointer"
+            >
               <Image
                 src="/back_arrow_desktop.png"
-                width={30}
-                height={30}
+                width={25}
+                height={25}
                 alt="back-button"
               />
-            </Link>
+            </div>
           </div>
-          <h2 className="md:text-[27px] text-[24px] font-bold  fbg text-left">
+          <h2 className="md:text-[24px] text-[24px] font-bold  fbg text-left">
             Generated Video
           </h2>
         </div>
@@ -79,23 +90,36 @@ export const GeneratedVideoUI = () => {
         <div className="flex mt-4 justify-between relative">
           <div className=" text-left mb-8">
             <div className="flex gap-2">
-              <p className="text-[13px] font-bold text-[#2463e9]">
+              <p className="text-[13px] md:text-[14px] font-bold text-[#2463e9]">
                 {video?.videoType || "Disease Explainer"}
               </p>
-              <p className="text-[13px] font-bold text-[#747474]">
+              <p className="text-[13px] md:text-[14px] font-bold text-[#747474]">
                 {" "}
                 |&nbsp; {video?.diseaseType || "Tubal Block"}
               </p>
             </div>
-            <p className="text-[13px] font-medium text-[#747474]">
+            <p className="text-[13px] md:text-[14px] font-medium text-[#747474]">
               {video?.language || "English"}
             </p>
           </div>
-          <div>
-            {/* <Tooltip title="Share" placement="top"> */}
-              <button onClick={handleOpen} className="px-2 cursor-pointer py-1 text-sm font-medium">Share</button>
-            {/* </Tooltip> */}
-          </div>
+          {/* <div>
+            <button
+              onClick={handleOpen}
+              className="px-2 cursor-pointer flex gap-1 py-1 text-sm font-medium"
+            >
+              Share
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                className="remixicon size-5 transition-transform group-hover:translate-x-1"
+              >
+                <path d="M13 14H11C7.54202 14 4.53953 15.9502 3.03239 18.8107C3.01093 18.5433 3 18.2729 3 18C3 12.4772 7.47715 8 13 8V3L23 11L13 19V14Z"></path>
+              </svg>
+            </button>
+          </div> */}
           {/* <div className=" absolute right-0 -top-1 mb-2">
             <a href={video?.video_url} target="_blank" download={`video.mp4`}>
               <Image

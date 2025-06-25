@@ -2,7 +2,13 @@
 
 import { Header } from "@/components/Header";
 import HubspotForm from "@/components/HubspotForm";
-import { Dialog, DialogContent, DialogTitle, Divider, Slide } from "@mui/material";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  Slide,
+} from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +25,7 @@ const Transition = React.forwardRef(function Transition(
 export default function Home() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const breakpoint = 768;
-  const [open,setModalOpen]=useState(false)
+  const [open, setModalOpen] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= breakpoint);
@@ -43,14 +49,17 @@ export default function Home() {
         className="!bg-no-repeat pb-8 relative bg-size md:px-8 px-2 items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]"
       >
         <main className=" md:pt-10 pt-10">
-           <section className="hero ">
-            <div className="text-[16px] my-4  font-bold" style={{ lineHeight: "20px" }}>
+          <section className="hero ">
+            <div
+              className="text-[16px] my-4  font-bold"
+              style={{ lineHeight: "20px" }}
+            >
               ESHRE 2025 <br className="md:block hidden" />
-               Interactive Demo Station
+              Interactive Demo Station
             </div>
-            </section>
+          </section>
 
-          <button className="px-4 text-[10px] font-semibold py-1 !rounded-2xl">
+          <button className="px-4 md:text-[14px] text-[12px] font-semibold py-1 !rounded-2xl">
             #1 AI VIDEO GENERATION PLATFORM FOR IVF CLINICS
           </button>
 
@@ -74,7 +83,7 @@ export default function Home() {
               video cloning, branding, and advanced analytics
             </p>
 
-            <Link href="/catelog-of-videos">
+            <Link href="/generate-videos">
               <button className="rounded-md cursor-pointer flex gap-4 justify-center text-[16px] font-medium mt-8 mx-auto w-[178px] py-2">
                 Start Demo{" "}
                 <div className="relative w-[15px] h-[15px] mt-1">
@@ -157,10 +166,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row   pt-1 pb-4 md:justify-around items-center text-center w-full">
                 <div className="md:pb-0 pb-2">
-                  <p
-                    className="bg-clip-text  font-bold text-[30px] text-[#2463e9]"
-                    
-                  >
+                  <p className="bg-clip-text  font-bold text-[30px] text-[#2463e9]">
                     78%
                   </p>
                   <p className="text-[14px] font-medium fbg">
@@ -169,22 +175,19 @@ export default function Home() {
                 </div>
                 <hr className="w-full text-gray-400 my-2 md:hidden block" />
                 <div className="md:border-r-2 md:border-l-2  md:py-0 py-3  px-32 border-[#CCCCCC]">
-                  <p
-                    className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
-                    
-                  >
+                  <p className="bg-clip-text text-[#2463e9] font-bold text-[30px]">
                     90%
                   </p>
                   <p className="text-[14px] font-medium fbg">Cost Reduction</p>
                 </div>
                 <hr className="w-full text-gray-400 my-2 md:hidden block" />
                 <div className="md:pt-0 pt-2">
-                  <p
-                    className="bg-clip-text text-[#2463e9] font-bold text-[30px]"
-                   >
+                  <p className="bg-clip-text text-[#2463e9] font-bold text-[30px]">
                     $0.50
                   </p>
-                  <p className="text-[14px] font-medium fbg">Video Cost Starting From</p>
+                  <p className="text-[14px] font-medium fbg">
+                    Video Cost Starting From
+                  </p>
                 </div>
               </div>
             </div>
@@ -279,7 +282,7 @@ export default function Home() {
               </div>
               <button
                 style={{ background: "white" }}
-                onClick={()=>setModalOpen(true)}
+                onClick={() => setModalOpen(true)}
                 className="mt-4 !text-[#2463e9] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 cursor-pointer !rounded-[8px] !transition hover:!bg-gray-100"
               >
                 Get a quote
@@ -296,13 +299,13 @@ export default function Home() {
         keepMounted
         className="rounded-xl"
         fullWidth
-        onClose={()=>setModalOpen(false)}
+        onClose={() => setModalOpen(false)}
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle align="left">{"Get a quote"}</DialogTitle>
-        <Divider/>
+        <Divider />
         <DialogContent>
-          <HubspotForm id="get_a_quotes"/>
+          <HubspotForm id="get_a_quotes" />
         </DialogContent>
       </Dialog>
     </div>

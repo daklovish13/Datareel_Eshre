@@ -12,12 +12,11 @@ import {
   Divider,
   Slide,
   Tooltip,
-  Typography,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import HubspotForm from "@/components/HubspotForm";
-import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import { GeneratedVideoUI } from "@/app/generated-videos/_components";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & { children: React.ReactElement },
@@ -27,7 +26,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export const GenerateVideoUI = () => {
-  const navigation = useRouter();
+  const [show, setShow] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
   const [selectedVideoType, setSelectedVideoType] = useState<string | null>(
     null
@@ -77,8 +76,6 @@ export const GenerateVideoUI = () => {
       disease: selectedDisease,
     };
 
-    const url = process.env.NEXT_PUBLIC_API_URL || "https://api.example.com";
-    // const url = "http://127.0.0.1:8000"
     fetch(`/api/videos`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -93,14 +90,19 @@ export const GenerateVideoUI = () => {
             icon: "error",
             title: "Oops...",
             text: "Currently, the video is not available. Please try again later or select a different option.!",
-            
           });
         } else {
           sessionStorage.setItem(
             "videoData",
             JSON.stringify({ ...result, ...result?.video_data })
           );
-          navigation.push("/generated-videos");
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth", // or 'auto' for instant scroll
+          });
+          setShow(true);
+
+          // navigation.push("/generated-videos");
         }
       });
   };
@@ -108,8 +110,14 @@ export const GenerateVideoUI = () => {
   return (
     <>
       <Header />
-
-      <div className="min-h-screen bg-[#f4f5ff] text-gray-700 z-50 relative">
+      <div className={`${show ? "block" : "hidden"}`}>
+        <GeneratedVideoUI setShow={setShow} />
+      </div>
+      <div
+        className={`min-h-screen bg-[#f4f5ff] text-gray-700 z-50 relative ${
+          show ? "hidden" : "block"
+        }`}
+      >
         {/* Custom Modal */}
         <Dialog
           open={openCustom}
@@ -122,22 +130,33 @@ export const GenerateVideoUI = () => {
             setRequest(false);
           }}
         >
-          <DialogTitle align="center">{"Design Your Own Video Story"}</DialogTitle>
+          <DialogTitle align="left">
+            {"Design Your Own Video Story"}
+          </DialogTitle>
           <Divider />
           <DialogContent>
             <div className={`${request ? "block" : "hidden"}`}>
               <HubspotForm id="custom_form" />
             </div>
             <div className={`my-2 ${request ? "hidden" : "block"}`}>
-              <Typography>
-                Your video, your way — pick an avatar, language, style, and topic. Get a personalized demo today
-              </Typography>
+              <span className="text-[22px] mb-4 font-medium text-center block mt-4">
+                <b>Your Video, Your Way </b>
+              </span>
+              <span>
+                <span className="text-[14px] font-medium">
+                  Pick an Avatar, Language,Type and Category.
+                </span>
+                <br />
+                <span className="text-[14px] font-medium mb-4">
+                  To Get a Personalized or Custom Video
+                </span>
+              </span>
               <div className="flex justify-center my-4">
                 <button
                   onClick={() => setRequest(true)}
                   className="mt-4 cursor-pointer flex md:mx-0 mx-auto !text-[16px] !font-medium !px-4 !py-2 !rounded-[8px]"
                 >
-                  Request a Custom Video
+                  Request a Custom Video Demo
                 </button>
               </div>
             </div>
@@ -148,15 +167,21 @@ export const GenerateVideoUI = () => {
           {/* Back Navigation */}
           <div className="flex gap-1  md:mb-10 mb-5">
             <div className="mt-1.5">
-              <Link href="/" className="cursor-pointer md:block hidden">
+              <Link
+                href="/catalogue-of-videos"
+                className="cursor-pointer md:block hidden"
+              >
                 <Image
                   src="/back_arrow_desktop.png"
-                  width={30}
-                  height={30}
+                  width={25}
+                  height={25}
                   alt="back-button"
                 />
               </Link>
-              <Link href="/" className="cursor-pointer md:hidden block">
+              <Link
+                href="/catalogue-of-videos"
+                className="cursor-pointer md:hidden block"
+              >
                 <Image
                   src="/back_arrow_desktop.png"
                   width={22}
@@ -165,18 +190,18 @@ export const GenerateVideoUI = () => {
                 />
               </Link>
             </div>
-            <div className="lg:text-[27px] text-[22px]  sm:text-[20px] font-bold  fbg text-left">
+            <div className="lg:text-[24px] text-[22px]  sm:text-[20px] font-bold  fbg text-left">
               Generate Video
             </div>
           </div>
           {/* Progress Indicator */}
           <div className="mb-4 bg-white p-2">
             <h2 className="font-medium text-[16px] text-black text-left mb-2">
-              Configuration Progress
+              Progress
             </h2>
             {(() => {
               const totalSteps = 4;
-              let completedSteps = 0;
+              let completedSteps = 0.03;
               if (selectedAvatar !== null) completedSteps++;
               if (selectedLanguage) completedSteps++;
               if (selectedVideoType) completedSteps++;
@@ -187,7 +212,7 @@ export const GenerateVideoUI = () => {
                 <div className="w-full h-2 bg-gray-200 rounded-full mb-1">
                   <div
                     className="h-full bg-cutom-color rounded-full transition-all duration-500 ease-in-out"
-                    style={{ width: `${progressPercent}%` }}
+                    style={{ width: `${progressPercent-.5}%` }}
                   ></div>
                 </div>
               );
@@ -211,9 +236,10 @@ export const GenerateVideoUI = () => {
                   key={index}
                   onClick={() =>
                     index !== 3 &&
+                    !loading &&
                     setSelectedAvatar((prev) => (prev === index ? null : index))
                   }
-                  className={`relative md:w-[150px] md:h-[150px] h-[80px] w-[80px] rounded-full flex items-center justify-center cursor-pointer transition 
+                  className={`relative md:w-[150px] md:h-[150px] h-[70px] w-[70px] rounded-full flex items-center justify-center cursor-pointer transition 
           ${
             selectedAvatar === index
               ? "border-2 border-[#2463e9]"
@@ -229,7 +255,9 @@ export const GenerateVideoUI = () => {
                       }
                       alt={`Avatar ${index}`}
                       fill
-                      onClick={() => index === 3 && setCustomModal(true)}
+                      onClick={() =>
+                        index === 3 && !loading && setCustomModal(true)
+                      }
                       className="object-cover rounded-full md:block hidden"
                     />
                     <Image
@@ -238,7 +266,9 @@ export const GenerateVideoUI = () => {
                       }
                       alt={`Avatar ${index}`}
                       fill
-                      onClick={() => index === 3 && setCustomModal(true)}
+                      onClick={() =>
+                        index === 3 && !loading && setCustomModal(true)
+                      }
                       className={`object-cover rounded-full md:hidden block ${
                         index === 3 ? "mt-4" : ""
                       }`}
@@ -281,9 +311,11 @@ export const GenerateVideoUI = () => {
                 <div
                   key={lang}
                   onClick={() => {
-                    setSelectedLanguage((prev) =>
-                      prev === lang ? null : lang
-                    );
+                    if (!loading) {
+                      setSelectedLanguage((prev) =>
+                        prev === lang ? null : lang
+                      );
+                    }
                     // Reset disease list if video type is already selected
                     if (
                       (lang === "Spanish" || lang === "French") &&
@@ -302,7 +334,7 @@ export const GenerateVideoUI = () => {
                   className={`flex items-center gap-2 justify-center mx-auto md:w-auto w-full md:mx-0 md:px-13 py-2 text-[14px] text-center font-medium rounded-[12px] cursor-pointer ${
                     selectedLanguage === lang
                       ? "bg-[#2463e926] border text-black border-[#2463e9]"
-                      : "shadow-md text-black"
+                      : "shadow-md text-black bg-gray-50 border border-[#8080801c]"
                   }`}
                 >
                   {lang}
@@ -311,7 +343,7 @@ export const GenerateVideoUI = () => {
               <img
                 src="/custom.png"
                 alt="custom"
-                onClick={() => setCustomModal(true)}
+                onClick={() => !loading && setCustomModal(true)}
                 className="h-[45px] my-auto md:mx-0 mx-auto md:mt-0 mt-2"
               />
             </div>
@@ -330,9 +362,11 @@ export const GenerateVideoUI = () => {
                 <div
                   key={name}
                   onClick={() => {
-                    setSelectedVideoType((prev) =>
-                      prev === name ? null : name
-                    );
+                    if (!loading) {
+                      setSelectedVideoType((prev) =>
+                        prev === name ? null : name
+                      );
+                    }
                     // Set disease list based on lang + video type
                     if (
                       (selectedLanguage === "Spanish" ||
@@ -349,7 +383,7 @@ export const GenerateVideoUI = () => {
                   className={`flex items-center gap-3   mx-auto md:w-auto w-full md:mx-0 px-4 py-2 justify-center rounded-[12px] cursor-pointer ${
                     selectedVideoType === name
                       ? "bg-[#2463e926] border text-black border-[#2463e9]"
-                      : "shadow-md text-black"
+                      : "shadow-md text-black bg-gray-50 border border-[#8080801c]"
                   }`}
                 >
                   <div className="relative md:w-[35px] md:h-[35px] w-[30px] h-[30px]">
@@ -366,7 +400,7 @@ export const GenerateVideoUI = () => {
               <img
                 src="/custom.png"
                 alt="custom"
-                onClick={() => setCustomModal(true)}
+                onClick={() => !loading && setCustomModal(true)}
                 className="h-[45px] md:mx-0 mx-auto -mb-[4px] mt-[10px]"
               />
             </div>
@@ -385,15 +419,17 @@ export const GenerateVideoUI = () => {
                 {diseaseList.map((disease) => (
                   <div
                     key={disease}
-                    onClick={() =>
-                      setSelectedDisease((prev) =>
-                        prev === disease ? null : disease
-                      )
-                    }
+                    onClick={() => {
+                      if (!loading) {
+                        setSelectedDisease((prev) =>
+                          prev === disease ? null : disease
+                        );
+                      }
+                    }}
                     className={`px-6 py-2 justify-center text-center rounded-[12px] md:my-1 md:w-fit w-full flex cursor-pointer ${
                       selectedDisease === disease
                         ? "bg-[#2463e926] text-black border border-[#2463e9]"
-                        : "shadow-md text-black"
+                        : "shadow-md text-black bg-gray-50 border border-[#8080801c]"
                     }`}
                   >
                     <span className="text-[14px] font-medium">{disease}</span>
@@ -402,7 +438,7 @@ export const GenerateVideoUI = () => {
                 <img
                   src="/custom.png"
                   alt="custom"
-                  onClick={() => setCustomModal(true)}
+                  onClick={() => !loading && setCustomModal(true)}
                   className="h-[45px] md:mx-0 mx-auto -mb-[4px]  md:mt-0"
                 />
               </div>

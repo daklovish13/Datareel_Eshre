@@ -14,8 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Datareel",
-  description: "",
-  icons:{"icon": "/favicon.ico"},
+  icons: { icon: { url: "/favicon.ico", type: "image/x-icon" } },
 };
 
 export default function RootLayout({
