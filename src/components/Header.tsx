@@ -66,8 +66,8 @@ export const Header = () => {
           <HubspotForm id="get_a_quote" />
         </DialogContent>
       </Dialog>
-      <header className="fixed top-5 left-0 right-0 mx-auto z-[999] w-full container px-4 sm:px-0">
-        <div className="bg-[rgba(255,255,255,0.5)] backdrop-blur-lg border border-gray-400/30 flex justify-between w-full text-white z-[999] rounded-2xl h-[56px] max-w-8xl px-4 mx-auto">
+      <header className="fixed top-5 left-0 right-0 mx-auto z-[999] w-full px-4 sm:px-6">
+        <div className="bg-[rgba(255,255,255,0.5)] backdrop-blur-lg border border-gray-400/30 flex justify-between w-full text-white z-[999] rounded-2xl h-[56px] max-w-4xl px-4 mx-auto">
           <div className="flex justify-center items-center">
             <Link href="/" className="flex items-center gap-3">
               <Image

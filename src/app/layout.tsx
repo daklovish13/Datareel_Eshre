@@ -22,8 +22,8 @@ export default function RootLayout({
     <html lang="en">
       <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0. maximum-scale=1.0, user-scalable=no"
-      ></meta>
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      />
       <body className={`${poppins.className} antialiased`}>
         <div className="relative max-w-[100dvw] container px-4 mx-auto overflow-hidden">
           <div className="absolute inset-0 -z-10 h-[100dvh] w-full rounded-b-xl bg-gradient-to-t from-secondary/30 to-transparent" />
