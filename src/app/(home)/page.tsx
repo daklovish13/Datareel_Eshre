@@ -2,6 +2,8 @@
 
 import { Header } from "@/components/Header";
 import HubspotForm from "@/components/HubspotForm";
+import ProgramFeatures from "@/components/ProgramFeatures";
+import CTASection from "@/components/cta-section";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +12,7 @@ import {
   Slide,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
-import Image from "next/image";
+import { BarChart3, Globe, DollarSign, User } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 const Transition = React.forwardRef(function Transition(
@@ -21,6 +23,59 @@ const Transition = React.forwardRef(function Transition(
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
+
+const hero = {
+  badgeIcon: (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="fill-[#364153]"
+    >
+      <path d="M7.62758 1.09876C7.74088 1.03404 7.8691 1 7.99958 1C8.13006 1 8.25828 1.03404 8.37158 1.09876L13.6216 4.09876C13.7363 4.16438 13.8316 4.25915 13.8979 4.37347C13.9642 4.48779 13.9992 4.6176 13.9992 4.74976C13.9992 4.88191 13.9642 5.01172 13.8979 5.12604C13.8316 5.24036 13.7363 5.33513 13.6216 5.40076L8.37158 8.40076C8.25828 8.46548 8.13006 8.49952 7.99958 8.49952C7.8691 8.49952 7.74088 8.46548 7.62758 8.40076L2.37758 5.40076C2.26287 5.33513 2.16753 5.24036 2.10123 5.12604C2.03492 5.01172 2 4.88191 2 4.74976C2 4.6176 2.03492 4.48779 2.10123 4.37347C2.16753 4.25915 2.26287 4.16438 2.37758 4.09876L7.62758 1.09876Z" />
+      <path d="M2.56958 7.23928L2.37758 7.34928C2.26287 7.41491 2.16753 7.50968 2.10123 7.624C2.03492 7.73831 2 7.86813 2 8.00028C2 8.13244 2.03492 8.26225 2.10123 8.37657C2.16753 8.49089 2.26287 8.58566 2.37758 8.65128L7.62758 11.6513C7.74088 11.716 7.8691 11.75 7.99958 11.75C8.13006 11.75 8.25828 11.716 8.37158 11.6513L13.6216 8.65128C13.7365 8.58573 13.8321 8.49093 13.8986 8.3765C13.965 8.26208 14 8.13211 14 7.99978C14 7.86745 13.965 7.73748 13.8986 7.62306C13.8321 7.50864 13.7365 7.41384 13.6216 7.34828L13.4296 7.23828L9.11558 9.70328C8.77568 9.89744 8.39102 9.99956 7.99958 9.99956C7.60814 9.99956 7.22347 9.89744 6.88358 9.70328L2.56958 7.23928Z" />
+      <path d="M2.37845 10.5993L2.57045 10.4893L6.88445 12.9533C7.22435 13.1474 7.60901 13.2496 8.00045 13.2496C8.39189 13.2496 8.77656 13.1474 9.11645 12.9533L13.4305 10.4883L13.6225 10.5983C13.7374 10.6638 13.833 10.7586 13.8994 10.8731C13.9659 10.9875 14.0009 11.1175 14.0009 11.2498C14.0009 11.3821 13.9659 11.5121 13.8994 11.6265C13.833 11.7409 13.7374 11.8357 13.6225 11.9013L8.37245 14.9013C8.25915 14.966 8.13093 15 8.00045 15C7.86997 15 7.74175 14.966 7.62845 14.9013L2.37845 11.9013C2.2635 11.8357 2.16795 11.7409 2.10148 11.6265C2.03501 11.5121 2 11.3821 2 11.2498C2 11.1175 2.03501 10.9875 2.10148 10.8731C2.16795 10.7586 2.2635 10.6638 2.37845 10.5983V10.5993Z" />
+    </svg>
+  ),
+  badge: "ESHRE 2025 Interactive Demo Station",
+  title: "Transform Data into Dynamic Video Stories", // Updated headline to be shorter
+  description:
+    "Convert Data into AI powered video at scale - with your custom avatars, video cloning, branding, and advanced analytics",
+  cta: {
+    primary: {
+      text: "Request a Demo",
+      href: "#contact",
+    },
+  },
+};
+const features = [
+  {
+    icon: User,
+    title: "AI Avatars",
+    description:
+      "Realistic doctor avatars with voice cloning technology that creates personalized medical communications at enterprise scale.",
+  },
+  {
+    icon: BarChart3,
+    title: "Data Driven",
+    description:
+      "Convert complex medical data into visual stories that patients can easily understand and engage with.",
+  },
+  {
+    icon: Globe,
+    title: "Scale Globally",
+    description:
+      "100+ languages with natural voices for multilingual healthcare communication across diverse patient populations.",
+  },
+  {
+    icon: DollarSign,
+    title: "Cost Effective",
+    description:
+      "Starting from $0.50 per video, making personalized healthcare communication accessible and scalable for any organization.",
+  },
+];
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
@@ -42,254 +97,78 @@ export default function Home() {
   //   <HorizontalLinearStepper />
   // ) :
   return (
-    <div className="pb-10">
+    <div className="pb-10 max-w-8xl container mx-auto relative">
       <Header />
-      <div
-        style={{ background: "url(Home.png)" }}
-        className="!bg-no-repeat pb-8 relative bg-size md:px-8 px-2 items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]"
-      >
-        <main className=" md:pt-10 pt-10">
-          <section className="hero ">
-            <div
-              className="text-[16px] my-4  font-bold"
-              style={{ lineHeight: "20px" }}
-            >
-              ESHRE 2025 <br className="md:block hidden" />
-              Interactive Demo Station
-            </div>
-          </section>
-
-          <button className="px-4 md:text-[14px] text-[12px] font-semibold py-1 !rounded-2xl">
-            #1 AI VIDEO GENERATION PLATFORM FOR IVF CLINICS
-          </button>
-
-          <section className="hero ">
-            <div className="text-[43px] my-4 lh-53 font-extrabold">
-              Transform Data into <br className="md:block hidden" />
-              Dynamic Video Stories
-            </div>
-
-            <p className="text-[#2463e9] text-[18px] font-medium mb-4">
-              Personalized Healthcare Video Communication
-            </p>
-
-            <p
-              className="text-[#747474] md:px-0 px-4 text-[15px] fbg font-medium mb-6"
-              style={{ lineHeight: "130%" }}
-            >
-              Convert Data into AI powered video at scale - with your custom
-              avatars,
-              <br className="md:block hidden" />
-              video cloning, branding, and advanced analytics
-            </p>
-
-            <Link href="/generate-videos">
-              <button className="rounded-md cursor-pointer flex gap-4 justify-center text-[16px] font-medium mt-8 mx-auto w-[178px] py-2">
-                Start Demo{" "}
-                <div className="relative w-[15px] h-[15px] mt-1">
-                  <Image
-                    src="/right-arrow.png"
-                    alt="right arrow"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </button>
-            </Link>
-          </section>
-
-          <section className="grid md:grid-cols-2 xs:grid-cols-1 w-full md:gap-10 gap-5 md:py-24 py-12 md:px-0 px-8">
-            {[
-              {
-                icon: "/face-detection.png",
-                title: "AI Avatars",
-                desc: "Realistic doctor avatars with voice cloning",
-              },
-              {
-                icon: "/growth.png",
-                title: "Data Driven",
-                desc: "Convert complex data into visual stories",
-              },
-              {
-                icon: "/earth.png",
-                title: "Scale Globally",
-                desc: "100+ languages with natural voices",
-              },
-              {
-                icon: "/salary.png",
-                title: "Cost Effective",
-                desc: "starting from $0.50 per video",
-              },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className="feature items-center px-6 pr-16 h-[119px] flex gap-4 text-left"
-              >
-                <div className="relative w-[50px] h-[50px] mt-1">
-                  <Image
-                    src={feature.icon}
-                    alt={feature.title}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <div>
-                  <p className="text-[19px] font-semibold">{feature.title}</p>
-                  <p
-                    className="text-[12px] font-medium text-[#747474]"
-                    style={{ lineHeight: "130%" }}
-                  >
-                    {feature.desc}
-                  </p>
-                </div>
+      <div className="pb-8 relative min-h-screen">
+        <main className="pt-10">
+          <section className="hero">
+            <div className="relative z-10 mx-auto flex h-full w-full max-w-3xl flex-col items-center justify-center gap-8 pt-28">
+              <div className="mx-auto flex flex-col justify-center items-center gap-2">
+                <p className="flex h-8 items-center gap-2 rounded-full border border-gray-400/50 bg-accent px-3 text-sm">
+                  {hero.badgeIcon}
+                  {hero.badge}
+                </p>
+                <p className="px-4 text-xs md:text-sm font-semibold py-1.5 rounded-full text-secondary text-center">
+                  #1 AI VIDEO GENERATION PLATFORM FOR IVF CLINICS
+                </p>
               </div>
-            ))}
+              <div className="flex flex-col items-center justify-center gap-2">
+                <h1 className="text-balance text-center text-3xl font-medium tracking-tighter leading-tight md:text-4xl lg:text-5xl xl:text-6xl">
+                  {hero.title}
+                </h1>
+                <p className="text-balance text-center text-sm sm:text-base font-medium leading-relaxed tracking-tight text-foreground/60 md:text-lg mt-2">
+                  {hero.description}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-2.5">
+                <Link
+                  className="hover:bg-secondary/80 flex items-center justify-center rounded-full border border-white/[0.12] bg-secondary px-5 py-2 text-sm font-normal tracking-wide text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] transition-all ease-out active:scale-95 dark:text-secondary-foreground"
+                  href="/generate-videos"
+                >
+                  Start Demo
+                </Link>
+                {/* {hero.cta.secondary && (
+              <button className="h-10 flex items-center justify-center w-32 px-5 text-sm font-normal tracking-wide text-primary rounded-full transition-all ease-out active:scale-95 bg-white dark:bg-background border border-[#E5E7EB] dark:border-[#27272A] hover:bg-white/80 dark:hover:bg-background/80">
+                {hero.cta.secondary.text}
+              </button>
+            )} */}
+              </div>
+            </div>
+          </section>
+
+          <section id="feature" className="md:pt-24 pt-12">
+            <div className="bg-white/20 backdrop-blur-md border border-white/20 rounded-2xl mx-auto p-2 md:p-6">
+              {/* Feature Grid */}
+              <div className="grid lg:grid-cols-2 gap-8">
+                {features.map((feature, index) => (
+                  <div key={index} className="group">
+                    <div className="border bg-white/20 backdrop-blur-md border-foreground/10 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300 overflow-hidden h-full">
+                      <div className="p-6 md:p-10">
+                        <div className="flex items-center gap-6 mb-4">
+                          <div className="flex-shrink-0 p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <feature.icon className="w-8 h-8 text-white" />
+                          </div>
+                          <h3 className="text-xl font-bold text-slate-800 group-hover:text-blue-700 transition-colors duration-300">
+                            {feature.title}
+                          </h3>
+                        </div>
+                        <p className="text-foreground/70 leading-relaxed text-sm sm:text-base font-medium">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </section>
         </main>
 
         {/* Program Features */}
-        <div className="md:px-0 px-4 relative w-full">
-          <div className="bg-white pb-8 rounded-lg shadow-lg px-8  w-full ">
-            <div className="py-6">
-              <p className="text-[26px] font-bold fbg text-center">
-                Program Features
-              </p>
-              <p className="text-[15px] font-medium text-center text-[#747474] fbg">
-                Enterprise healthcare video capabilities
-              </p>
-            </div>
-
-            {/* Performance Metrics */}
-            <div className="bg-[#F7F7FF] mb-6 rounded-[8px] px-10 relative">
-              <div className="text-[16px] font-bold py-3 fbg">
-                Performance Metrics
-              </div>
-              <div className="flex flex-col sm:flex-row   pt-1 pb-4 md:justify-around items-center text-center w-full">
-                <div className="md:pb-0 pb-2">
-                  <p className="bg-clip-text  font-bold text-[30px] text-[#2463e9]">
-                    78%
-                  </p>
-                  <p className="text-[14px] font-medium fbg">
-                    Engagement Increase
-                  </p>
-                </div>
-                <hr className="w-full text-gray-400 my-2 md:hidden block" />
-                <div className="md:border-r-2 md:border-l-2  md:py-0 py-3  px-32 border-[#CCCCCC]">
-                  <p className="bg-clip-text text-[#2463e9] font-bold text-[30px]">
-                    90%
-                  </p>
-                  <p className="text-[14px] font-medium fbg">Cost Reduction</p>
-                </div>
-                <hr className="w-full text-gray-400 my-2 md:hidden block" />
-                <div className="md:pt-0 pt-2">
-                  <p className="bg-clip-text text-[#2463e9] font-bold text-[30px]">
-                    $0.50
-                  </p>
-                  <p className="text-[14px] font-medium fbg">
-                    Video Cost Starting From
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Feature Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:px-4 ">
-              {[
-                {
-                  title: "Advanced Analytics",
-                  icon: "/graph-svgrepo-com1.png",
-                  desc: "Real-time engagement metrics, completion rates, and patient interaction insights",
-                },
-                {
-                  title: "Engagement Tracking",
-                  icon: "/graph-svgrepo-com2.png",
-                  desc: "Monitor video effectiveness and patient comprehension levels across all touchpoints",
-                },
-                {
-                  title: "Approval Workflow",
-                  icon: "/graph-svgrepo-com3.png",
-                  desc: "Multi-tier medical content review and compliance validation system",
-                },
-                {
-                  title: "Smart Callbacks",
-                  icon: "/graph-svgrepo-com4.png",
-                  desc: "Automated follow-up scheduling based on patient engagement and care protocols",
-                },
-                {
-                  title: "Feedback Collection",
-                  icon: "/graph-svgrepo-com6.png",
-                  desc: "Integrated patient satisfaction surveys and clinical outcome tracking",
-                },
-                {
-                  title: "Enterprises Security",
-                  icon: "/graph-svgrepo-com5.png",
-                  desc: "zero-trust architecture and healthcare data protection",
-                },
-              ].map((feature, i) => (
-                <div
-                  key={i}
-                  className="p-4 bg-[#F8F8F8] flex gap-4 md:px-6 px-1 items-center rounded-md text-left"
-                >
-                  <div className="md:block hidden">
-                    <Image
-                      src={feature.icon}
-                      alt={feature.title}
-                      width={40}
-                      height={40}
-                    />
-                  </div>
-                  <div className="md:hidden block">
-                    <Image
-                      src={feature.icon}
-                      alt={feature.title}
-                      width={70}
-                      height={70}
-                    />
-                  </div>
-                  <div>
-                    <p className="text-[14px] font-medium fbg mb-1">
-                      {feature.title}
-                    </p>
-                    <p className="text-[13px] font-medium text-[#747474] fbg">
-                      {feature.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="relative w-full md:px-0 px-4 pb-6">
-          <div className="bg-[#2463e9] px-8 md:py-0 py-4 mt-10 text-white rounded-xl  md:flex block  items-center md:gap-6 gap-2  w-full">
-            {/* Left Side Illustration */}
-            <div className=" flex justify-center">
-              <Image
-                src="/Quote_front.png" // Replace with actual image path
-                alt="Quote Illustration"
-                width={250}
-                height={250}
-              />
-            </div>
-
-            {/* Right Side Text and Button */}
-            <div className="w-full md:w-2/3 md:text-left text-center">
-              <div>
-                <p className="md:text-[20px] text-[16px] font-medium">
-                  Tell us what you need, and we’ll craft a custom
-                  <br className="md:block hidden" /> quote to bring your AI
-                  video strategy to life.
-                </p>
-              </div>
-              <button
-                style={{ background: "white" }}
-                onClick={() => setModalOpen(true)}
-                className="mt-4 !text-[#2463e9] flex md:mx-0 mx-auto !text-[16px] !font-bold !px-4 !py-2 cursor-pointer !rounded-[8px] !transition hover:!bg-gray-100"
-              >
-                Get a quote
-              </button>
-            </div>
-          </div>
-        </div>
+        <section id="program-feature" className="pb-12 pt-6">
+          <ProgramFeatures />
+          <CTASection />
+        </section>
       </div>
       <Dialog
         open={open}

@@ -3,27 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --secondary: #2463e9;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-secondary: var(--secondary);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-button{
-  background:#2463e9;
-  border-radius: 8px;
-  color:white;
-}
 .lh-53{
   line-height: 53px;
 }
@@ -31,30 +19,11 @@ button{
 .bg-cutom-color{
   background: #2463e9;
 }
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0;
-}
-
-.fbg{
-  font-family: Geist;
-}
 
 .bg-custom-light{
   background: #2463e9;
   opacity: 20%;
 }
-
-
-.hero {
-  font-family: Geist;
-}
-
-.hero h1 {
-  font-size: 2.5em;
-}
-
 
 .bg-size{
   background-size: 100% 195% !important;
@@ -69,11 +38,11 @@ body {
   width: 100%;
 }
 
-footer {
+/* footer {
   padding: 20px 0;
   background-color: #4F86F7;
   color: white;
-}
+} */
 
 .custom-heightWidth{
   height: 96px;
