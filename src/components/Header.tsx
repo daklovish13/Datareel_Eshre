@@ -71,20 +71,12 @@ export const Header = () => {
           <div className="flex justify-center items-center">
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src={"/v2/brand/logo-dark.svg"}
-                alt={`Datareel Logo`}
-                priority
-                width={2250}
-                height={800}
-                className="h-10 w-auto object-contain dark:hidden md:h-12"
-              />
-              <Image
                 src={"/v2/brand/logo-light.svg"}
                 alt={`Datareel Logo`}
                 priority
                 width={2250}
                 height={800}
-                className="hidden h-10 w-auto object-contain dark:block md:h-12"
+                className="h-10 w-auto object-contain md:h-12"
               />
             </Link>
           </div>

@@ -42,6 +42,7 @@ const PersonalizedVideoLoader = ({
   avatarArray: Array<{
     name: string;
     path: string;
+    videoPath: string | null;
     desc: string;
     folderName?: string;
   }>;
@@ -210,13 +211,24 @@ const PersonalizedVideoLoader = ({
             <div className="flex items-center gap-1.5 sm:gap-2">
               <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-white rounded border overflow-hidden flex-shrink-0">
                 {selectedAvatar !== null && (
-                  <Image
-                    src={avatarArray[selectedAvatar]?.path !== "custom" ? avatarArray[selectedAvatar]?.path : "/create_own.png"}
-                    alt="avatar"
-                    width={16}
-                    height={16}
-                    className="object-cover sm:w-5 sm:h-5 md:w-6 md:h-6"
-                  />
+                  avatarArray[selectedAvatar]?.path !== "custom" && avatarArray[selectedAvatar]?.videoPath ? (
+                    <video
+                      className="w-full h-full object-cover"
+                      src={avatarArray[selectedAvatar].videoPath}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <Image
+                      src={avatarArray[selectedAvatar]?.path !== "custom" ? avatarArray[selectedAvatar]?.path : "/create_own.png"}
+                      alt="avatar"
+                      width={16}
+                      height={16}
+                      className="object-cover sm:w-5 sm:h-5 md:w-6 md:h-6"
+                    />
+                  )
                 )}
               </div>
               <span className="text-gray-700 truncate">{avatarArray[selectedAvatar || 0]?.name}</span>
@@ -377,6 +389,7 @@ const createAvatarArray = () => [
     id: 1,
     name: "Jonathan", 
     path: "/British_Male_thumbnail.webp", 
+    videoPath: "/Assets/Sophia/Avatar.mp4",
     desc: "Professional British accent",
     folderName: "Sophia", // Maps to Sophia folder for now
     available: true
@@ -385,6 +398,7 @@ const createAvatarArray = () => [
     id: 2,
     name: "Sophia", 
     path: "/US_Female_thumbnail.webp", 
+    videoPath: "/Assets/Sophia/Avatar.mp4",
     desc: "Warm American voice",
     folderName: "Sophia",
     available: true
@@ -393,6 +407,7 @@ const createAvatarArray = () => [
     id: 3,
     name: "Keira", 
     path: "/Asian_Female_thumbnail.webp", 
+    videoPath: "/Assets/Sophia/Avatar.mp4",
     desc: "Clear Asian accent",
     folderName: "Sophia", // Maps to Sophia folder for now
     available: true
@@ -401,6 +416,7 @@ const createAvatarArray = () => [
     id: 4,
     name: "Custom", 
     path: "custom", 
+    videoPath: null,
     desc: "Create your own",
     folderName: "custom",
     available: false
@@ -865,15 +881,26 @@ export const GenerateVideoUI = () => {
                           )}
                         </div>
                       ) : (
-                        // Regular avatar with image
+                        // Regular avatar with video or image
                         <>
-                    <Image
-                            src={item.path}
-                            alt={item.name}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 50vw, 25vw"
-                          />
+                          {item.videoPath ? (
+                            <video
+                              className="w-full h-full object-cover"
+                              src={item.videoPath}
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                            />
+                          ) : (
+                            <Image
+                              src={item.path}
+                              alt={item.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 50vw, 25vw"
+                            />
+                          )}
                           {selectedAvatar === index && (
                             <div className="absolute inset-0 bg-blue-600/10 flex items-center justify-center">
                               <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
