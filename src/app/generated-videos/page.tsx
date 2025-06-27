@@ -1,8 +1,9 @@
 "use client";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { GeneratedVideoUI } from "./_components";
 
-export default function GeneratedVideos() {
+function GeneratedVideoContent() {
   const searchParams = useSearchParams();
   const videoUrl = searchParams.get("video_url");
   const videoType = searchParams.get("videoType") || undefined;
@@ -19,5 +20,13 @@ export default function GeneratedVideos() {
         language,
       }}
     />
+  );
+}
+
+export default function GeneratedVideos() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <GeneratedVideoContent />
+    </Suspense>
   );
 }
