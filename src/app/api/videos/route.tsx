@@ -12,7 +12,7 @@ const createVideoPath = (
   disease?: string
 ): string => {
   const avatarFolderMap: { [key: string]: string } = {
-    "Jonathan": "Sophia",
+    "Alex": "Alex",
     "Sophia": "Sophia", 
     "Keira": "Sophia",
   };
@@ -211,7 +211,7 @@ export async function GET() {
     return new Response(JSON.stringify({
       success: true,
       available_videos: availableVideos,
-      avatars: ["Jonathan", "Sophia", "Keira"],
+      avatars: ["Alex", "Sophia", "Keira"],
       languages: ["English", "French", "Spanish"]
     }), {
       status: 200,

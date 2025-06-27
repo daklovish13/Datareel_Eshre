@@ -1,56 +1,56 @@
 [
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "English", 
     "video_type": "Disease Explainer",
     "disease": "Tubal Block",
-    "video_url": "/Assets/Sophia/English/Disease/Tubal Block.mp4",
+    "video_url": "/Assets/Alex/English/Disease/Tubal Block.mp4",
     "status": "available"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "English",
     "video_type": "Disease Explainer", 
     "disease": "PCOD",
-    "video_url": "/Assets/Sophia/English/Disease/PCOD.mp4",
+    "video_url": "/Assets/Alex/English/Disease/PCOD.mp4",
     "status": "available"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "English",
     "video_type": "Disease Explainer",
     "disease": "Teratozoospermia", 
-    "video_url": "/Assets/Sophia/English/Disease/Teratoozoospermia.mp4",
+    "video_url": "/Assets/Alex/English/Disease/Teratoozoospermia.mp4",
     "status": "available"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan", 
+    "avatar_name": "Alex", 
     "language": "English",
     "video_type": "Report Explainer",
     "disease": "Tubal Block",
-    "video_url": "/Assets/Sophia/English/Report/Tubal Block.mp4",
+    "video_url": "/Assets/Alex/English/Report/Tubal Block.mp4",
     "status": "available"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "English", 
     "video_type": "Report Explainer",
     "disease": "Teratozoospermia",
-    "video_url": "/Assets/Sophia/English/Report/Teratoozoospermia.mp4", 
+    "video_url": "/Assets/Alex/English/Report/Teratoozoospermia.mp4", 
     "status": "available"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "English",
     "video_type": "Educational Videos",
     "disease": "Stimulation",
-    "video_url": "/Assets/Sophia/English/Educational/Stimulation.mp4",
+    "video_url": "/Assets/Alex/English/Educational/Stimulation.mp4",
     "status": "available"
   },
   
@@ -166,29 +166,29 @@
 
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "French",
     "video_type": "Disease Explainer",
     "disease": "Tubal Block",
-    "video_url": "/Assets/Sophia/French/Disease/Tubal Block.mp4",
+    "video_url": "/Assets/Alex/French/Disease/Tubal Block.mp4",
     "status": "limited"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan", 
+    "avatar_name": "Alex", 
     "language": "French",
     "video_type": "Report Explainer",
     "disease": "Tubal Block",
-    "video_url": "/Assets/Sophia/French/Report/Tubal Block.mp4",
+    "video_url": "/Assets/Alex/French/Report/Tubal Block.mp4",
     "status": "limited"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "French",
     "video_type": "Educational Videos", 
     "disease": "Stimulation",
-    "video_url": "/Assets/Sophia/French/Educational/Stimulation.mp4",
+    "video_url": "/Assets/Alex/French/Educational/Stimulation.mp4",
     "status": "limited"
   },
 
@@ -250,29 +250,29 @@
 
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "Spanish",
     "video_type": "Disease Explainer",
     "disease": "Tubal Block",
-    "video_url": "/Assets/Sophia/Spanish/Disease/Tubal Block.mp4",
+    "video_url": "/Assets/Alex/Spanish/Disease/Tubal Block.mp4",
     "status": "limited"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "Spanish",
     "video_type": "Report Explainer",
     "disease": "Tubal Block",
-    "video_url": "/Assets/Sophia/Spanish/Report/Tubal Block.mp4",
+    "video_url": "/Assets/Alex/Spanish/Report/Tubal Block.mp4",
     "status": "limited"
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Jonathan",
+    "avatar_name": "Alex",
     "language": "Spanish",
     "video_type": "Educational Videos",
     "disease": "Stimulation",
-    "video_url": "/Assets/Sophia/Spanish/Educational/Stimulation.mp4",
+    "video_url": "/Assets/Alex/Spanish/Educational/Stimulation.mp4",
     "status": "limited"
   },
 

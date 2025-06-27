@@ -427,7 +427,7 @@ const createVideoPath = (
 ): string => {
   // Map UI selections to actual folder structure
   const avatarFolderMap: { [key: string]: string } = {
-    Jonathan: "Sophia", // Currently only Sophia videos exist
+    Alex: "Alex", // Alex has his own video folder
     Sophia: "Sophia",
     Keira: "Sophia", // Fallback to Sophia for now
   };
@@ -457,11 +457,11 @@ const createVideoPath = (
 const createAvatarArray = () => [
   {
     id: 1,
-    name: "Jonathan",
+    name: "Alex",
     path: "/British_Male_thumbnail.webp",
-    videoPath: "/Assets/Sophia/Avatar.mp4",
+    videoPath: "/Assets/Alex/Alex.mp4",
     desc: "Professional British accent",
-    folderName: "Sophia", // Maps to Sophia folder for now
+    folderName: "Alex",
     available: true,
   },
   {
@@ -1482,7 +1482,6 @@ export const GenerateVideoUI = () => {
                 </h4>
                 <ul className="space-y-0.5 sm:space-y-1 text-xs text-blue-800 leading-tight">
                   <li>• Video generation takes 30-60 seconds</li>
-                  <li>• All avatars use Sophia&apos;s voice</li>
                   <li>• French/Spanish have limited content</li>
                   <li>• Educational videos skip disease selection</li>
                 </ul>

@@ -14,6 +14,7 @@ import { TransitionProps } from "@mui/material/transitions";
 import HubspotForm from "@/components/HubspotForm";
 import ShareVideoDialog from "@/components/ShareVideo";
 import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type GeneratedVideoUIProps = {
   setShow: (show: boolean) => void;
@@ -172,12 +173,18 @@ const ActionButton = ({
 );
 
 export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   // const [downloading, setDownloading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
+  
+  const handleGenerateAnother = () => {
+    router.push('/try');
+  };
+  
   console.log(video);
 
   // const handleDownload = async () => {
@@ -353,7 +360,7 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
                 </h3>
                 <div className="space-y-2 sm:space-y-3">
                   <button
-                    onClick={() => setShow(false)}
+                    onClick={handleGenerateAnother}
                     className="w-full flex items-center gap-2 sm:gap-3 p-2 sm:p-3 lg:p-4 text-left hover:bg-blue-50 transition-colors rounded-xl border border-gray-200 hover:border-blue-200"
                   >
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
