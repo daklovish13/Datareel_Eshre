@@ -1,5 +1,4 @@
 "use client";
-import { Header } from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -128,7 +127,6 @@ export const Catalogue = () => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <Header />
       <div className="bg-[#EEF2FE] p-4 md:p-6 relative z-50">
         <div className="flex gap-1  md:mb-10 mb-14">
           <div className="mt-1.5">
@@ -156,7 +154,7 @@ export const Catalogue = () => {
         {/* Generate Button on top-right of the main image */}
         <div className="">
           <div className="md:block  hidden absolute md:top-[2rem] md:right-5 top-[.8rem] right-[.5rem]  height-30">
-            <Link href="/generate-videos">
+            <Link href="/try">
               <span className="underline inline-flex cursor-pointer gap-3 text-[#2463e9] text-[16px] font-medium px-3 py-1 justify-center rounded-[8px]  hover:opacity-90">
                 Generate AI Video
               </span>
@@ -254,7 +252,13 @@ export const Catalogue = () => {
                   src="/videos/thumb.mp4"
                   controls
                 ></video> */}
-                <Image src={item?.tumbnail} alt={`${item?.videoType} - ${item?.diseaseType} thumbnail`} width={300} height={200} className="object-contain w-full " />
+                <Image
+                  src={item?.tumbnail}
+                  alt={`${item?.videoType} - ${item?.diseaseType} thumbnail`}
+                  width={300}
+                  height={200}
+                  className="object-contain w-full "
+                />
                 <div
                   style={{
                     background: "url(/play_button.png)",

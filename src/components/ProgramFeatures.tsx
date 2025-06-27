@@ -1,5 +1,6 @@
 import { Zap, DollarSign, TrendingUp } from "lucide-react";
 import { SectionHeader } from "./ui/SectionHeader";
+import { usePathname } from "next/navigation";
 
 function ProgramFeatures() {
   const featureCategories = [
@@ -65,6 +66,8 @@ function ProgramFeatures() {
     },
   ];
 
+  const route = usePathname();
+
   const performanceMetrics = [
     {
       value: "78%",
@@ -92,42 +95,47 @@ function ProgramFeatures() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <SectionHeader>
-        <h2 className="text-balance text-center text-3xl font-medium tracking-tighter md:text-4xl">
-          Program Features
-        </h2>
-        <p className="text-balance text-center font-medium text-foreground/60 mt-2">
-          Enterprise healthcare video capabilities
-        </p>
-      </SectionHeader>
-
-      {/* Performance Metrics Overview */}
-      <div className="mb-16">
-        <div className="grid md:grid-cols-3 gap-6">
-          {performanceMetrics.map((metric, index) => (
-            <div
-              key={index}
-              className={`text-center p-6 border rounded-xl border-gray-200 ${metric.bgColor} hover:scale-105 shadow-md transition-all`}
-            >
-              <div className={`py-6`}>
+      {route === "/" && (
+        <>
+          <SectionHeader>
+            <h2 className="text-balance text-center text-3xl font-medium tracking-tighter md:text-4xl">
+              Program Features
+            </h2>
+            <p className="text-balance text-center font-medium text-foreground/60 mt-2">
+              Enterprise healthcare video capabilities
+            </p>
+          </SectionHeader>
+          {/* Performance Metrics Overview */}
+          <div className="mb-16">
+            <div className="grid md:grid-cols-3 gap-6">
+              {performanceMetrics.map((metric, index) => (
                 <div
-                  className={`flex items-center justify-center rounded-lg ${metric.textColor}`}
+                  key={index}
+                  className={`text-center p-6 border rounded-xl border-gray-200 ${metric.bgColor} hover:scale-105 shadow-md transition-all`}
                 >
-                  <div
-                    className={`text-3xl font-bold mb-2 flex justify-center items-center gap-3`}
-                  >
-                    <metric.icon className={`w-8 h-8 ${metric.textColor}`} />
-                    {metric.value}
+                  <div className={`py-6`}>
+                    <div
+                      className={`flex items-center justify-center rounded-lg ${metric.textColor}`}
+                    >
+                      <div
+                        className={`text-3xl font-bold mb-2 flex justify-center items-center gap-3`}
+                      >
+                        <metric.icon
+                          className={`w-8 h-8 ${metric.textColor}`}
+                        />
+                        {metric.value}
+                      </div>
+                    </div>
+                    <div className="text-foreground/70 text-base font-medium">
+                      {metric.label}
+                    </div>
                   </div>
                 </div>
-                <div className="text-foreground/70 text-base font-medium">
-                  {metric.label}
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
 
       {/* Feature Categories */}
       <div className="grid lg:grid-cols-2 gap-8">

@@ -1,6 +1,4 @@
 "use client";
-
-import { Header } from "@/components/Header";
 import HubspotForm from "@/components/HubspotForm";
 import ProgramFeatures from "@/components/ProgramFeatures";
 import CTASection from "@/components/cta-section";
@@ -97,9 +95,8 @@ export default function Home() {
   //   <HorizontalLinearStepper />
   // ) :
   return (
-    <div className="pb-10 max-w-8xl container mx-auto relative">
-      <Header />
-      <div className="pb-8 relative min-h-screen">
+    <div className="max-w-7xl container mx-auto relative">
+      <div className="relative min-h-screen">
         <main className="pt-10">
           <section className="hero">
             <div className="relative z-10 mx-auto flex h-full w-full max-w-3xl flex-col items-center justify-center gap-8 pt-28">
@@ -123,7 +120,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center justify-center gap-2.5">
                 <Link
                   className="hover:bg-secondary/80 flex items-center justify-center rounded-full border border-white/[0.12] bg-secondary px-5 py-2 text-sm font-normal tracking-wide text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] transition-all ease-out active:scale-95 dark:text-secondary-foreground"
-                  href="/generate-videos"
+                  href="/try"
                 >
                   Start Demo
                 </Link>

@@ -790,7 +790,7 @@ export const GenerateVideoUI = () => {
     return (
       <>
         <div className="min-h-screen bg-gray-50 pt-20">
-          <div className="max-w-4xl mx-auto p-6 space-y-6">
+          <div className="max-w-7xl mx-auto p-6 space-y-6">
             <div className="flex items-center gap-4">
               <Skeleton variant="circular" width={32} height={32} />
               <Skeleton variant="text" width={180} height={28} />
@@ -911,12 +911,12 @@ export const GenerateVideoUI = () => {
           </DialogContent>
         </Dialog>
 
-        <div className="max-w-4xl mx-auto p-2 sm:p-3 md:p-4 lg:p-5 space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
+        <div className="max-w-7xl mx-auto p-2 sm:p-3 md:p-4 lg:p-5 space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
           {/* Enhanced Header */}
           <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
             <Link
               href="/"
-              className="p-1.5 sm:p-2 lg:p-2.5 hover:bg-white/80 rounded-xl transition-all duration-200 group shadow-sm border border-gray-200"
+              className="p-1.5 sm:p-2 lg:p-2.5 bg-white/50 backdrop-blur-lg rounded-xl transition-all duration-200 group shadow-sm border border-gray-200"
             >
               <ArrowLeft className="size-5" />
             </Link>
@@ -1139,12 +1139,12 @@ export const GenerateVideoUI = () => {
                       )}
                     </div>
                     <div className="text-center">
-                      <h3 className="font-semibold text-gray-900 text-xs sm:text-sm lg:text-base mb-0.5 sm:mb-1">
+                      <h3 className="font-semibold text-gray-900 text-xs sm:text-sm lg:text-base">
                         {item.name}
                       </h3>
-                      <p className="text-xs text-gray-600 leading-tight">
+                      {/* <p className="text-xs text-gray-600 leading-tight">
                         {item.desc}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </SelectionCard>
@@ -1183,24 +1183,38 @@ export const GenerateVideoUI = () => {
                         !isAvailable ? "opacity-60" : ""
                       }`}
                     >
-                      <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
-                        <div className="text-lg sm:text-2xl lg:text-3xl">
-                          {lang.flag}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900 text-xs sm:text-sm lg:text-base mb-0.5 sm:mb-1">
+                      <div className="flex items-center justify-between gap-2 sm:gap-3 lg:gap-4">
+                        <div className="flex justify-center items-center gap-4">
+                          <div className="text-lg sm:text-2xl lg:text-3xl">
+                            {lang.flag}
+                          </div>
+                          <h3 className="font-semibold text-gray-900 text-xs sm:text-sm lg:text-base">
                             {lang.name}
                           </h3>
-                          <p className="text-xs text-gray-600 leading-tight">
+                          {/* <p className="text-xs text-gray-600 leading-tight">
                             {!isAvailable && selectedVideoType
                               ? `Limited for ${selectedVideoType}`
                               : lang.desc}
-                          </p>
+                          </p> */}
                         </div>
-                        {selectedLanguage === lang.name && (
-                          <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-blue-600 rounded-full flex items-center justify-center shadow-sm">
+                        {selectedLanguage === lang.name ? (
+                          <div className="h-6 w-6 bg-blue-600 rounded-full flex items-center justify-center shadow-sm">
                             <svg
                               className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4 text-white"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 10-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        ) : (
+                          <div className="w-6 h-6 bg-foreground/20 rounded-full flex items-center justify-center shadow-sm">
+                            <svg
+                              className="w-3 h-3 text-white"
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >

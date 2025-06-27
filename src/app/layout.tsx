@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import Footer from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,6 +28,7 @@ export default function RootLayout({
       />
       <body className={`${poppins.className} antialiased`}>
         <div className="relative max-w-[100dvw] container px-4 mx-auto overflow-hidden">
+          <Header />
           <div className="absolute inset-0 -z-10 h-[100dvh] w-full rounded-b-xl bg-gradient-to-t from-secondary/30 to-transparent" />
           <Image
             src={"/v2/Shapes/Shapes-03.svg"}
@@ -56,6 +59,7 @@ export default function RootLayout({
             className="pointer-events-none absolute bottom-5 left-14 z-0 size-20 rotate-45 object-contain opacity-10 max-sm:right-3 md:size-24 lg:size-32"
           />
           {children}
+          <Footer />
         </div>
       </body>
     </html>

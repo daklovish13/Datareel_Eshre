@@ -63,11 +63,11 @@ export const Header = () => {
         <DialogTitle align="left">{"Get a quote"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="get_a_quote" />
+          <HubspotForm id="get_a_quotes" />
         </DialogContent>
       </Dialog>
       <header className="fixed top-5 left-0 right-0 mx-auto z-[999] w-full px-4 sm:px-6">
-        <div className="bg-[rgba(255,255,255,0.5)] backdrop-blur-lg border border-gray-400/30 flex justify-between w-full text-white z-[999] rounded-2xl h-[56px] max-w-4xl px-4 mx-auto">
+        <div className="bg-[rgba(255,255,255,0.5)] backdrop-blur-lg border border-gray-400/30 flex justify-between w-full text-white z-[999] rounded-2xl h-[56px] max-w-7xl px-4 mx-auto">
           <div className="flex justify-center items-center">
             <Link href="/" className="flex items-center gap-3">
               <Image
@@ -105,7 +105,7 @@ export const Header = () => {
           <div className="flex justify-center items-center gap-4">
             {pathname === "/catalogue-of-videos" && (
               <div className="md:hidden block  absolute md:top-[2rem] md:right-5 top-[1.2rem] right-[.5rem]  height-30">
-                <Link href="/generate-videos">
+                <Link href="/try">
                   <span className="underline inline-flex cursor-pointer gap-3 text-secondary text-[16px] font-medium px-3 py-1 justify-center rounded-[8px]  hover:opacity-90">
                     Generate AI Video
                   </span>
