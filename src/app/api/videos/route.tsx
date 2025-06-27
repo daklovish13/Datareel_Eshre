@@ -184,12 +184,12 @@ export async function POST(request: NextRequest) {
       headers: { "Content-Type": "application/json" }
     });
 
-  } catch (error: unknown) {
-    console.error('Video API error:', error);
+  } catch (err: unknown) {
+    console.error('Video API error:', err);
     
     let errorMessage = "Unknown error occurred";
-    if (error && typeof error === "object" && "message" in error) {
-      errorMessage = (error as { message: string }).message;
+    if (err && typeof err === "object" && "message" in err) {
+      errorMessage = (err as { message: string }).message;
     }
     
     return new Response(
@@ -217,7 +217,8 @@ export async function GET() {
       status: 200,
       headers: { "Content-Type": "application/json" }
     });
-  } catch (error) {
+  } catch (err) {
+    console.error('Failed to get available videos:', err);
     return new Response(
       JSON.stringify({ message: "Failed to get available videos" }),
       { status: 500, headers: { "Content-Type": "application/json" } }

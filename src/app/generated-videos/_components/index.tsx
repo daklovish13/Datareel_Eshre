@@ -20,7 +20,6 @@ const OptimizedVideoPlayer = ({ src, className = "" }: { src: string; className?
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const [videoDimensions, setVideoDimensions] = useState({ width: 0, height: 0 });
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -38,19 +37,12 @@ const OptimizedVideoPlayer = ({ src, className = "" }: { src: string; className?
       setVideoError(true);
     };
 
-    const handlePlay = () => setIsPlaying(true);
-    const handlePause = () => setIsPlaying(false);
-
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('error', handleError);
-    video.addEventListener('play', handlePlay);
-    video.addEventListener('pause', handlePause);
 
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('error', handleError);
-      video.removeEventListener('play', handlePlay);
-      video.removeEventListener('pause', handlePause);
     };
   }, [src]);
 

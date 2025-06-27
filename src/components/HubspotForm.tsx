@@ -41,7 +41,7 @@ const HubspotForm = ({ id }: HubspotFormProps) => {
       }
     };
     document.body.appendChild(script);
-  }, []);
+  }, [id]);
 
   return <div id={id}></div>;
 };

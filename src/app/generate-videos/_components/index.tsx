@@ -13,7 +13,6 @@ import {
   Slide,
   Tooltip,
   Skeleton,
-  LinearProgress,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import HubspotForm from "@/components/HubspotForm";
@@ -40,7 +39,12 @@ const PersonalizedVideoLoader = ({
   selectedLanguage: string | null;
   selectedVideoType: string | null;
   selectedDisease: string | null;
-  avatarArray: any[];
+  avatarArray: Array<{
+    name: string;
+    path: string;
+    desc: string;
+    folderName?: string;
+  }>;
   onComplete: () => void;
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -476,7 +480,6 @@ export const GenerateVideoUI = () => {
   const [openCustom, setCustomModal] = useState(false);
   const [selectedDisease, setSelectedDisease] = useState<string | null>(null);
   const [selectedAvatar, setSelectedAvatar] = useState<number | null>(null);
-  const [open, setOpen] = useState(false);
   const [request, setRequest] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showPersonalizedLoader, setShowPersonalizedLoader] = useState(false);
@@ -507,7 +510,7 @@ export const GenerateVideoUI = () => {
     desc: config.desc
   })), [languageConfig]);
 
-  const handleClose = useCallback(() => setOpen(false), []);
+
 
   const generateVideo = useCallback(async () => {
     // Show personalized loader first
@@ -1104,7 +1107,7 @@ export const GenerateVideoUI = () => {
                 <h4 className="font-semibold text-blue-900 mb-1 sm:mb-2 text-xs sm:text-sm lg:text-base">Quick Tips</h4>
                 <ul className="space-y-0.5 sm:space-y-1 text-xs text-blue-800 leading-tight">
                   <li>• Video generation takes 30-60 seconds</li>
-                  <li>• All avatars use Sophia's voice</li>
+                  <li>• All avatars use Sophia&apos;s voice</li>
                   <li>• French/Spanish have limited content</li>
                   <li>• Educational videos skip disease selection</li>
                 </ul>

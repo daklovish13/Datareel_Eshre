@@ -254,7 +254,7 @@ export const Catalogue = () => {
                   src="/videos/thumb.mp4"
                   controls
                 ></video> */}
-                <img src={item?.tumbnail} className="object-contain w-full " />
+                <Image src={item?.tumbnail} alt={`${item?.videoType} - ${item?.diseaseType} thumbnail`} width={300} height={200} className="object-contain w-full " />
                 <div
                   style={{
                     background: "url(/play_button.png)",

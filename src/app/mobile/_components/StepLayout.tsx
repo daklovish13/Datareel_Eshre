@@ -1,5 +1,6 @@
 
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface StepLayoutProps {
   currentStep: number;
@@ -75,7 +76,7 @@ export default function StepLayout({
                 style={{ background: "transparent" }}
                 className="!w-[100px] !flex !bg-white !items-center !justify-center !rounded-full !text-[20px] !text-[#3A3A3A] !font-bold !gap-3 hover:underline"
               >
-                <span className="text-lg"><img src="back-arrow.png"  alt="back_arrow" className="w-[6px] h-[12px]" /></span> Back
+                <span className="text-lg"><Image src="/back-arrow.png"  alt="back_arrow" width={6} height={12} className="w-[6px] h-[12px]" /></span> Back
               </button>
             )}
 
@@ -88,7 +89,7 @@ export default function StepLayout({
               } !flex  !items-center !justify-center !gap-2 !px-6 !py-2 !text-[20px] !font-bold !text-medium !rounded-[26px] !bg-[#6864F4] !text-white hover:bg-purple-600 disabled:opacity-50 disabled:cursor-not-allowed`}
             >
               {isLastStep? "Generate" : "Next"}
-              <span className="text-[24px]"><img src="next_arrow.png" alt="back_arrow" className="w-[6px] h-[12px] mt-0.5" /></span>
+              <span className="text-[24px]"><Image src="/next_arrow.png" alt="next_arrow" width={6} height={12} className="w-[6px] h-[12px] mt-0.5" /></span>
             </button>
           </div>
         </div>
