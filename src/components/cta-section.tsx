@@ -34,7 +34,7 @@ export default function CTASection() {
         onClose={() => setModalOpen(false)}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle align="left">{"Get a quote"}</DialogTitle>
+        <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
           <HubspotForm id="custom_form" />
@@ -70,7 +70,7 @@ export default function CTASection() {
                   onClick={() => setModalOpen(true)}
                   className="flex items-center justify-center text-white rounded-full border border-white/[0.12] bg-secondary px-5 py-2 text-sm font-medium tracking-wide shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] transition-all ease-out active:scale-95 cursor-pointer"
                 >
-                  Get a quote
+                  Book Demo
                 </button>
                 <span className="mx-auto px-6 pb-2 text-center text-sm font-medium text-foreground/60">
                   We&apos;ll craft a custom quote to bring your AI video

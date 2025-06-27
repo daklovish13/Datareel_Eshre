@@ -178,7 +178,7 @@ export default function Home() {
         onClose={() => setModalOpen(false)}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle align="left">{"Get a quote"}</DialogTitle>
+        <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
           <HubspotForm id="get_a_quotes" />
