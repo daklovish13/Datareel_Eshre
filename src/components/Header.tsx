@@ -63,7 +63,7 @@ export const Header = () => {
         <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="get_a_quotes" />
+          <HubspotForm id="get_a_quote" />
         </DialogContent>
       </Dialog>
       <header className="fixed top-5 left-0 right-0 mx-auto z-[999] w-full px-4 sm:px-6">
@@ -87,8 +87,8 @@ export const Header = () => {
                   key={item.name}
                   className={`z-10 flex gap-4 h-full rounded-full px-3 py-1.5 cursor-pointer items-center justify-center text-sm font-medium leading-none transition-colors duration-200 ${
                     activeSection === item.href.substring(2)
-                      ? "text-foreground bg-white/50 backdrop-blur-md"
-                      : "text-foreground/60 hover:text-foreground"
+                      ? "text-foreground bg-white/50 backdrop-blur-md border border-foreground/10"
+                      : "text-foreground/60 hover:text-foreground border border-transparent"
                   } tracking-tight`}
                 >
                   <Link

@@ -246,7 +246,7 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
         <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="get_a_quote" />
+          <HubspotForm id="custom_form" />
         </DialogContent>
       </Dialog>
 
@@ -340,7 +340,7 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
                     <p className="text-gray-600 text-sm">
                       Language: {video?.language || "English"}
                     </p>
-                    <span className="bg-gray-100 text-gray-700 text-sm font-medium rounded-full">
+                    <span className="text-gray-700 text-sm font-medium rounded-full">
                       {video?.diseaseType || "Tubal Block"}
                     </span>
                   </div>
