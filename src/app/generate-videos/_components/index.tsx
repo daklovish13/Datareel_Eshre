@@ -428,8 +428,8 @@ const createVideoPath = (
   // Map UI selections to actual folder structure
   const avatarFolderMap: { [key: string]: string } = {
     Alex: "Alex", // Alex has his own video folder
+    Emily: "Emily",
     Sophia: "Sophia",
-    Keira: "Sophia", // Fallback to Sophia for now
   };
 
   const videoTypeFolderMap: { [key: string]: string } = {
@@ -466,20 +466,20 @@ const createAvatarArray = () => [
   },
   {
     id: 2,
-    name: "Sophia",
-    path: "/US_Female_thumbnail.webp",
-    videoPath: "/Assets/Sophia/Avatar.mp4",
-    desc: "Warm American voice",
-    folderName: "Sophia",
+    name: "Emily",
+    path: "/Asian_Female_thumbnail.webp",
+    videoPath: "/Assets/Emily/Emily.mp4",
+    desc: "Clear Asian accent",
+    folderName: "Emily",
     available: true,
   },
   {
     id: 3,
-    name: "Keira",
-    path: "/Asian_Female_thumbnail.webp",
-    videoPath: "/Assets/Sophia/Avatar.mp4",
-    desc: "Clear Asian accent",
-    folderName: "Sophia", // Maps to Sophia folder for now
+    name: "Sophia",
+    path: "/US_Female_thumbnail.webp",
+    videoPath: "/Assets/Sophia/Sophia.mp4",
+    desc: "Warm American voice",
+    folderName: "Sophia",
     available: true,
   },
   {

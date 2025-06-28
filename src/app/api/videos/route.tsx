@@ -13,8 +13,8 @@ const createVideoPath = (
 ): string => {
   const avatarFolderMap: { [key: string]: string } = {
     "Alex": "Alex",
-    "Sophia": "Sophia", 
-    "Keira": "Sophia",
+    "Emily": "Emily",
+    "Sophia": "Sophia",
   };
 
   const videoTypeFolderMap: { [key: string]: string } = {
@@ -211,7 +211,7 @@ export async function GET() {
     return new Response(JSON.stringify({
       success: true,
       available_videos: availableVideos,
-      avatars: ["Alex", "Sophia", "Keira"],
+      avatars: ["Alex", "Emily", "Sophia"],
       languages: ["English", "French", "Spanish"]
     }), {
       status: 200,
