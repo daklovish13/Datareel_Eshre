@@ -489,7 +489,7 @@ const createAvatarArray = () => [
   },
   {
     id: 4,
-    name: "Custom",
+    name: "Custom Avatar",
     path: "custom",
     videoPath: null,
     desc: "Create your own",
@@ -1096,7 +1096,7 @@ export const GenerateVideoUI = () => {
                               />
                             </svg>
                             <div className="text-xs font-medium text-purple-700">
-                              Create Own
+                              Create a Custom Avatar
                             </div>
                           </div>
                           {selectedAvatar === index && (
