@@ -445,6 +445,11 @@ const createVideoPath = (
     Stimulation: "Stimulation",
   };
 
+  // Special case for Alex's Tubal Block Disease Explainer
+  if (avatar === "Alex" && videoType === "Disease Explainer" && disease === "Tubal Block") {
+    return `/Assets/Alex/${language}/Disease/Tubal_Block_1.mp4`;
+  }
+
   const avatarFolder = avatarFolderMap[avatar] || "Sophia";
   const typeFolder = videoTypeFolderMap[videoType];
   const diseaseFile = disease ? diseaseFolderMap[disease] : "Stimulation";
@@ -527,8 +532,7 @@ const createVideoTypeConfig = () => [
     desc: "Teach medical procedures",
     available: {
       English: ["Stimulation"],
-      French: ["Stimulation"],
-      Spanish: ["Stimulation"],
+      // French and Spanish educational videos are not available
     },
   },
 ];
@@ -589,16 +593,28 @@ export const GenerateVideoUI = () => {
   const videoTypeConfig = useMemo(() => createVideoTypeConfig(), []);
   const languageConfig = useMemo(() => createLanguageConfig(), []);
 
-  // Legacy support for existing code
+  // Legacy support for existing code with language filtering
   const videoType = useMemo(
     () =>
-      videoTypeConfig.map((config) => ({
-        name: config.name,
-        child: config.child,
-        icon: config.icon,
-        desc: config.desc,
-      })),
-    [videoTypeConfig]
+      videoTypeConfig
+        .filter((config) => {
+          // If no language selected, show all video types
+          if (!selectedLanguage) return true;
+          
+          // Check if this video type is available for the selected language
+          const languageKey = selectedLanguage as keyof typeof config.available;
+          const availableForLanguage = config.available[languageKey];
+          
+          // Only show if videos are available for this language
+          return availableForLanguage && availableForLanguage.length > 0;
+        })
+        .map((config) => ({
+          name: config.name,
+          child: config.child,
+          icon: config.icon,
+          desc: config.desc,
+        })),
+    [videoTypeConfig, selectedLanguage]
   );
 
   const languages = useMemo(
@@ -728,23 +744,23 @@ export const GenerateVideoUI = () => {
     (lang: string) => {
       setSelectedLanguage((prev) => (prev === lang ? null : lang));
 
-      // Smart disease list based on selected video type and language availability
+      // Check if the currently selected video type is available for the new language
       if (selectedVideoType) {
         const typeConfig = videoTypeConfig.find(
           (vt) => vt.name === selectedVideoType
         );
-        if (
-          typeConfig &&
-          typeConfig.available[lang as keyof typeof typeConfig.available]
-        ) {
-          const availableForLang =
-            typeConfig.available[lang as keyof typeof typeConfig.available];
-          setSelectDisease(availableForLang || []);
-        } else {
-          // Fallback to English availability if language not available
-          const englishAvailable = typeConfig?.available.English || [];
-          setSelectDisease(englishAvailable);
+        const availableForLang = typeConfig?.available[lang as keyof typeof typeConfig.available];
+        
+        if (!availableForLang || availableForLang.length === 0) {
+          // Reset video type if it's not available for the selected language
+          setSelectedVideoType(null);
+          setSelectDisease([]);
+          setSelectedDisease(null);
+          return;
         }
+
+        // Update disease list for the available video type
+        setSelectDisease(availableForLang || []);
       } else {
         setSelectDisease([]);
       }

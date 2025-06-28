@@ -14,7 +14,7 @@ const createVideoPath = (
   const avatarFolderMap: { [key: string]: string } = {
     "Alex": "Alex",
     "Emily": "Emily",
-    "Sophia": "Sophia",
+    "Sophia": "Sophia", 
   };
 
   const videoTypeFolderMap: { [key: string]: string } = {
@@ -29,6 +29,11 @@ const createVideoPath = (
     "Teratozoospermia": "Teratoozoospermia", // Note: folder has extra 'o'
     "Stimulation": "Stimulation"
   };
+
+  // Special case for Alex's Tubal Block Disease Explainer
+  if (avatar === "Alex" && videoType === "Disease Explainer" && disease === "Tubal Block") {
+    return `/Assets/Alex/${language}/Disease/Tubal_Block_1.mp4`;
+  }
 
   const avatarFolder = avatarFolderMap[avatar] || "Sophia";
   const typeFolder = videoTypeFolderMap[videoType];
@@ -61,9 +66,8 @@ const getAvailableVideos = () => ({
     Spanish: ["Tubal Block"]
   },
   "Educational Videos": {
-    English: ["Stimulation"],
-    French: ["Stimulation"],
-    Spanish: ["Stimulation"]
+    English: ["Stimulation"]
+    // French and Spanish educational videos are not available
   }
 });
 

@@ -31,7 +31,7 @@
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Alex",
+    "avatar_name": "Alex", 
     "avatar_video": "/Assets/Alex/Alex.mp4", 
     "language": "English",
     "video_type": "Report Explainer",
@@ -59,7 +59,7 @@
     "video_url": "/Assets/Alex/English/Educational/Stimulation.mp4",
     "status": "available"
   },
-
+  
   {
     "avatar_id": 2,
     "avatar_name": "Emily",
@@ -194,7 +194,7 @@
   },
   {
     "avatar_id": 1,
-    "avatar_name": "Alex",
+    "avatar_name": "Alex", 
     "avatar_video": "/Assets/Alex/Alex.mp4", 
     "language": "French",
     "video_type": "Report Explainer",
@@ -230,7 +230,7 @@
     "avatar_video": "/Assets/Sophia/Sophia.mp4",
     "language": "French",
     "video_type": "Disease Explainer",
-    "disease": "Tubal Block",
+    "disease": "Tubal Block", 
     "video_url": "/Assets/Sophia/French/Disease/Tubal Block.mp4",
     "status": "available"
   },

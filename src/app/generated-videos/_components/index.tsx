@@ -39,9 +39,11 @@ const Transition = React.forwardRef(function Transition(
 const OptimizedVideoPlayer = ({
   src,
   className = "",
+  onVideoRef,
 }: {
   src: string;
   className?: string;
+  onVideoRef?: (ref: HTMLVideoElement | null) => void;
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -54,6 +56,11 @@ const OptimizedVideoPlayer = ({
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // Pass video ref to parent component
+    if (onVideoRef) {
+      onVideoRef(video);
+    }
 
     const handleLoadedMetadata = () => {
       setVideoLoaded(true);
@@ -73,8 +80,17 @@ const OptimizedVideoPlayer = ({
     return () => {
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
       video.removeEventListener("error", handleError);
+      // Clean up video ref when component unmounts
+      if (onVideoRef) {
+        onVideoRef(null);
+      }
+      // Pause and reset video on cleanup
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+      }
     };
-  }, [src]);
+  }, [src, onVideoRef]);
 
   if (videoError) {
     return (
@@ -177,12 +193,26 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
   const [open, setOpen] = useState(false);
   // const [downloading, setDownloading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const videoElementRef = useRef<HTMLVideoElement | null>(null);
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
   const handleGenerateAnother = () => {
     router.push("/try");
+  };
+
+  const handleBack = () => {
+    // Stop video before going back
+    if (videoElementRef.current) {
+      videoElementRef.current.pause();
+      videoElementRef.current.currentTime = 0;
+    }
+    setShow(false);
+  };
+
+  const handleVideoRef = (ref: HTMLVideoElement | null) => {
+    videoElementRef.current = ref;
   };
 
   console.log(video);
@@ -255,7 +285,7 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
           {/* Header */}
           <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 mb-4 sm:mb-6 lg:mb-8">
             <button
-              onClick={() => setShow(false)}
+              onClick={handleBack}
               className="p-1 sm:p-1.5 lg:p-2 bg-white/50 backdrop-blur-lg rounded-xl transition-colors group cursor-pointer"
             >
               <ArrowLeft className="size-6" />
@@ -278,6 +308,7 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
                   <OptimizedVideoPlayer
                     src={video.video_url}
                     className="w-full max-w-2xl mx-auto"
+                    onVideoRef={handleVideoRef}
                   />
                 ) : (
                   <div className="flex items-center justify-center bg-gray-100 h-32 sm:h-48 lg:h-64 rounded-xl">
