@@ -14,7 +14,7 @@ import { TransitionProps } from "@mui/material/transitions";
 import HubspotForm from "@/components/HubspotForm";
 import ShareVideoDialog from "@/components/ShareVideo";
 import { ArrowLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 type GeneratedVideoUIProps = {
   setShow: (show: boolean) => void;
@@ -190,6 +190,7 @@ const ActionButton = ({
 
 export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
   const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   // const [downloading, setDownloading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -199,7 +200,13 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
   const handleOpen = () => setOpen(true);
 
   const handleGenerateAnother = () => {
-    router.push("/try");
+    if (pathname === "/try") {
+      // If already on /try page, refresh the page
+      window.location.reload();
+    } else {
+      // If not on /try page, redirect to /try
+      router.push("/try");
+    }
   };
 
   const handleBack = () => {
@@ -276,7 +283,7 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
         <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="custom_form" />
+          <HubspotForm id="get_a_quote" />
         </DialogContent>
       </Dialog>
 

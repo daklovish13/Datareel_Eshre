@@ -447,7 +447,7 @@ const createVideoPath = (
 
   // Special case for Alex's Tubal Block Disease Explainer
   if (avatar === "Alex" && videoType === "Disease Explainer" && disease === "Tubal Block") {
-    return `/Assets/Alex/${language}/Disease/Tubal_Block_1.mp4`;
+    return `/Assets/Alex/${language}/Disease/Tubal Block.mp4`;
   }
 
   const avatarFolder = avatarFolderMap[avatar] || "Sophia";
@@ -888,7 +888,10 @@ export const GenerateVideoUI = () => {
             </Typography>
             <IconButton
               aria-label="close"
-              onClick={() => setCustomModal(false)}
+              onClick={() => {
+                setCustomModal(false);
+                setRequest(false);
+              }}
               sx={{
                 position: "absolute",
                 right: 8,

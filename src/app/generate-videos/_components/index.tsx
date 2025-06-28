@@ -447,7 +447,7 @@ const createVideoPath = (
 
   // Special case for Alex's Tubal Block Disease Explainer
   if (avatar === "Alex" && videoType === "Disease Explainer" && disease === "Tubal Block") {
-    return `/Assets/Alex/${language}/Disease/Tubal_Block_1.mp4`;
+    return `/Assets/Alex/${language}/Disease/Tubal Block.mp4`;
   }
 
   const avatarFolder = avatarFolderMap[avatar] || "Sophia";
@@ -888,7 +888,11 @@ export const GenerateVideoUI = () => {
             </Typography>
             <IconButton
               aria-label="close"
-              onClick={() => setCustomModal(false)}
+              onClick={() => {
+                setRequest(false);
+                setCustomModal(false);
+                
+              }}
               sx={{
                 position: "absolute",
                 right: 8,
@@ -902,7 +906,7 @@ export const GenerateVideoUI = () => {
           <Divider />
           <DialogContent>
             <div className={`${request ? "block" : "hidden"}`}>
-              <HubspotForm id="custom_form" />
+              <HubspotForm id="get_a_quote" />
             </div>
             <div className={`py-6 ${request ? "hidden" : "block"}`}>
               <div className="text-center space-y-4">

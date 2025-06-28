@@ -36,15 +36,73 @@ const ShareVideoDialog: React.FC<ShareVideoDialogProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
   const [showSnackbar, setShowSnackbar] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   const handleCopyUrl = async () => {
-    try {
-      await navigator.clipboard.writeText(videoUrl);
-      setCopied(true);
+    // Reset states
+    setCopyError(false);
+    setCopied(false);
+    
+    // Check if videoUrl is available
+    if (!videoUrl || videoUrl.trim() === '') {
+      setCopyError(true);
       setShowSnackbar(true);
-      setTimeout(() => setCopied(false), 2000);
+      console.error("No URL available to copy");
+      return;
+    }
+    
+    try {
+      // Check if the Clipboard API is available
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(videoUrl);
+        setCopied(true);
+        setShowSnackbar(true);
+        setTimeout(() => setCopied(false), 2000);
+      } else {
+        // Fallback method for older browsers
+        fallbackCopyTextToClipboard(videoUrl);
+      }
     } catch (err) {
       console.error("Failed to copy URL:", err);
+      // Try fallback method if clipboard API fails
+      fallbackCopyTextToClipboard(videoUrl);
+    }
+  };
+
+  const fallbackCopyTextToClipboard = (text: string) => {
+    try {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      
+      // Avoid scrolling to bottom
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      if (successful) {
+        setCopied(true);
+        setCopyError(false);
+        setShowSnackbar(true);
+        setTimeout(() => setCopied(false), 2000);
+      } else {
+        // Show error message to user
+        setCopyError(true);
+        setShowSnackbar(true);
+        console.error("Fallback copy failed");
+      }
+    } catch (err) {
+      console.error("Fallback copy failed:", err);
+      // Show error message to user
+      setCopyError(true);
+      setShowSnackbar(true);
     }
   };
 
@@ -257,16 +315,22 @@ const ShareVideoDialog: React.FC<ShareVideoDialogProps> = ({
       <Snackbar
         open={showSnackbar}
         autoHideDuration={3000}
-        onClose={() => setShowSnackbar(false)}
+        onClose={() => {
+          setShowSnackbar(false);
+          setCopyError(false);
+        }}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
         <Alert
-          onClose={() => setShowSnackbar(false)}
-          severity="success"
+          onClose={() => {
+            setShowSnackbar(false);
+            setCopyError(false);
+          }}
+          severity={copyError ? "error" : "success"}
           variant="filled"
           sx={{ borderRadius: 2 }}
         >
-          URL copied to clipboard!
+          {copyError ? "Failed to copy URL. Please try again or copy manually." : "URL copied to clipboard!"}
         </Alert>
       </Snackbar>
     </>

@@ -37,7 +37,7 @@ export default function CTASection() {
         <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="get_a_quotes" />
+          <HubspotForm id="get_a_quote" />
         </DialogContent>
       </Dialog>
       <section
