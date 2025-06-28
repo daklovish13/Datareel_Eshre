@@ -905,7 +905,7 @@ export const GenerateVideoUI = () => {
           <Divider />
           <DialogContent>
             <div className={`${request ? "block" : "hidden"}`}>
-              <HubspotForm id="custom_form" />
+              <HubspotForm id="get_a_quotes" />
             </div>
             <div className={`py-6 ${request ? "hidden" : "block"}`}>
               <div className="text-center space-y-4">

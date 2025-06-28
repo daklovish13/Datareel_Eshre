@@ -283,7 +283,7 @@ export const GeneratedVideoUI = ({ setShow, video }: GeneratedVideoUIProps) => {
         <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="get_a_quote" />
+          <HubspotForm id="custom_form" />
         </DialogContent>
       </Dialog>
 
