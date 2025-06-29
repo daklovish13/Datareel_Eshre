@@ -583,6 +583,23 @@ export const GenerateVideoUI = () => {
   }>({ video_url: "" });
   const [isInitialLoading, setIsInitialLoading] = useState(true);
 
+  // Refs for auto-scrolling
+  const avatarSectionRef = React.useRef<HTMLDivElement>(null);
+  const languageSectionRef = React.useRef<HTMLDivElement>(null);
+  const videoTypeSectionRef = React.useRef<HTMLDivElement>(null);
+  const diseaseSectionRef = React.useRef<HTMLDivElement>(null);
+
+  // Auto-scroll function
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+    setTimeout(() => {
+      if (ref.current) {
+        const yOffset = -100; // Offset to account for header
+        const y = ref.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   // Simulate initial loading
   React.useEffect(() => {
     const timer = setTimeout(() => setIsInitialLoading(false), 800);
@@ -742,7 +759,16 @@ export const GenerateVideoUI = () => {
 
   const handleLanguageSelect = useCallback(
     (lang: string) => {
-      setSelectedLanguage((prev) => (prev === lang ? null : lang));
+      setSelectedLanguage((prev) => {
+        const newValue = prev === lang ? null : lang;
+        
+        // Auto-scroll to video type section when language is selected
+        if (newValue !== null) {
+          scrollToSection(videoTypeSectionRef);
+        }
+        
+        return newValue;
+      });
 
       // Check if the currently selected video type is available for the new language
       if (selectedVideoType) {
@@ -771,7 +797,16 @@ export const GenerateVideoUI = () => {
 
   const handleVideoTypeSelect = useCallback(
     (name: string, child: string[]) => {
-      setSelectedVideoType((prev) => (prev === name ? null : name));
+      setSelectedVideoType((prev) => {
+        const newValue = prev === name ? null : name;
+        
+        // Auto-scroll to disease section when video type is selected (if not Educational Videos)
+        if (newValue !== null && newValue !== "Educational Videos") {
+          scrollToSection(diseaseSectionRef);
+        }
+        
+        return newValue;
+      });
 
       // Smart disease list based on selected language and video type availability
       if (selectedLanguage) {
@@ -1051,7 +1086,7 @@ export const GenerateVideoUI = () => {
           </div>
 
           {/* Avatar Selection */}
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-2 sm:p-3 md:p-4 lg:p-5">
+          <div ref={avatarSectionRef} className="bg-white rounded-xl border border-gray-200 shadow-sm p-2 sm:p-3 md:p-4 lg:p-5">
             <StepIndicator
               step={1}
               title="Choose Your Avatar"
@@ -1067,9 +1102,14 @@ export const GenerateVideoUI = () => {
                   disabled={loading || showPersonalizedLoader}
                   onClick={() => {
                     if (index !== 3) {
-                      setSelectedAvatar((prev) =>
-                        prev === index ? null : index
-                      );
+                      setSelectedAvatar((prev) => {
+                        const newValue = prev === index ? null : index;
+                        // Auto-scroll to language section when avatar is selected
+                        if (newValue !== null) {
+                          scrollToSection(languageSectionRef);
+                        }
+                        return newValue;
+                      });
                     } else {
                       setCustomModal(true);
                     }
@@ -1172,7 +1212,7 @@ export const GenerateVideoUI = () => {
           </div>
 
           {/* Language Selection */}
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-2 sm:p-3 md:p-4 lg:p-5">
+          <div ref={languageSectionRef} className="bg-white rounded-xl border border-gray-200 shadow-sm p-2 sm:p-3 md:p-4 lg:p-5">
             <StepIndicator
               step={2}
               title="Select Language"
@@ -1280,7 +1320,7 @@ export const GenerateVideoUI = () => {
           </div>
 
           {/* Video Type Selection */}
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-2 sm:p-3 md:p-4 lg:p-5">
+          <div ref={videoTypeSectionRef} className="bg-white rounded-xl border border-gray-200 shadow-sm p-2 sm:p-3 md:p-4 lg:p-5">
             <StepIndicator
               step={3}
               title="Select Video Type"
@@ -1350,7 +1390,7 @@ export const GenerateVideoUI = () => {
 
           {/* Disease Selection */}
           {diseaseList.length > 0 && (
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-2 sm:p-3 md:p-4 lg:p-5">
+            <div ref={diseaseSectionRef} className="bg-white/70 backdrop-blur-sm rounded-xl p-2 sm:p-3 md:p-4 lg:p-5">
               <StepIndicator
                 step={4}
                 title="Select Category"
