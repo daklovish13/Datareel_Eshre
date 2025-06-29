@@ -1513,7 +1513,7 @@ export const GenerateVideoUI = () => {
                 <ul className="space-y-0.5 sm:space-y-1 text-xs text-blue-800 leading-tight">
                   <li>• Demo Video generation may take 10-20 seconds.</li>
                   <li>• Only English/French/Spanish enabled with limited content for demo purposes.</li>
-                  <li>• For custom avatar, language and/or another custom video type, "Schedule a Demo"</li>
+                  <li>• For custom avatar, language and/or another custom video type, &ldquo;Schedule a Demo&rdquo;</li>
                 </ul>
               </div>
             </div>
