@@ -1335,6 +1335,17 @@ export const GenerateVideoUI = () => {
                 </SelectionCard>
               ))}
             </div>
+
+            <div className="mt-4 text-center">
+              <button
+                onClick={() => setCustomModal(true)}
+                disabled={loading || showPersonalizedLoader}
+                className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors text-xs sm:text-sm text-gray-600 disabled:opacity-50 cursor-pointer"
+              >
+                <FilmIcon className="size-4" />
+                <span>Need another video type?</span>
+              </button>
+            </div>
           </div>
 
           {/* Disease Selection */}
@@ -1500,9 +1511,9 @@ export const GenerateVideoUI = () => {
                   Quick Tips
                 </h4>
                 <ul className="space-y-0.5 sm:space-y-1 text-xs text-blue-800 leading-tight">
-                  <li>• Video generation takes 30-60 seconds</li>
-                  <li>• French/Spanish have limited content</li>
-                  <li>• Educational videos skip disease selection</li>
+                  <li>• Demo Video generation may take 10-20 seconds.</li>
+                  <li>• Only English/French/Spanish enabled with limited content for demo purposes.</li>
+                  <li>• For custom avatar, language and/or another custom video type, "Schedule a Demo"</li>
                 </ul>
               </div>
             </div>
