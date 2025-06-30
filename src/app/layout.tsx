@@ -4,6 +4,7 @@ import "./globals.css";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <GoogleAnalytics gaId='G-VVNQF96XY9' />
       </body>
     </html>
   );
