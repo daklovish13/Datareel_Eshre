@@ -119,10 +119,10 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap items-center justify-center gap-2.5">
                 <Link
-                  className="hover:bg-secondary/80 flex items-center justify-center rounded-full border border-white/[0.12] bg-secondary px-5 py-2 text-sm font-normal tracking-wide text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] transition-all ease-out active:scale-95 dark:text-secondary-foreground"
+                  className="hover:bg-[#ea580c]/80 flex items-center justify-center rounded-full border border-white/[0.12] bg-[#ea580c] px-5 py-2 text-base font-medium tracking-wide text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] transition-all ease-out active:scale-95 dark:text-secondary-foreground"
                   href="/try"
                 >
-                  Start Demo
+                  TRY IT LIVE
                 </Link>
                 {/* {hero.cta.secondary && (
               <button className="h-10 flex items-center justify-center w-32 px-5 text-sm font-normal tracking-wide text-primary rounded-full transition-all ease-out active:scale-95 bg-white dark:bg-background border border-[#E5E7EB] dark:border-[#27272A] hover:bg-white/80 dark:hover:bg-background/80">
