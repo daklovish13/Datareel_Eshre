@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/videos/route": "/api/videos",
+  "/(home)/page": "/",
+  "/catalogue-of-videos/page": "/catalogue-of-videos",
+  "/generate-videos/page": "/generate-videos",
+  "/generated-videos/page": "/generated-videos",
+  "/try/page": "/try",
+  "/mobile/page": "/mobile"
+}
