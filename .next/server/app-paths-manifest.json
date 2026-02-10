@@ -1,10 +1,10 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/api/videos/route": "app/api/videos/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/(home)/page": "app/(home)/page.js",
-  "/catalogue-of-videos/page": "app/catalogue-of-videos/page.js",
   "/generate-videos/page": "app/generate-videos/page.js",
   "/generated-videos/page": "app/generated-videos/page.js",
-  "/try/page": "app/try/page.js",
-  "/mobile/page": "app/mobile/page.js"
+  "/catalogue-of-videos/page": "app/catalogue-of-videos/page.js",
+  "/mobile/page": "app/mobile/page.js",
+  "/try/page": "app/try/page.js"
 }
