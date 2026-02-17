@@ -14,7 +14,7 @@ const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement;
   },
-  ref: React.Ref<unknown>
+  ref: React.Ref<unknown>,
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -37,7 +37,7 @@ export default function CTASection() {
         <DialogTitle align="left">{"Book Demo"}</DialogTitle>
         <Divider />
         <DialogContent>
-          <HubspotForm id="get_a_quote" />
+          <HubspotForm id="request_demo" />
         </DialogContent>
       </Dialog>
       <section

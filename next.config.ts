@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  distDir: process.env.NEXT_PUBLIC_NODE_ENV === "dev" ? "build" : ".next",
 };
 
 export default nextConfig;

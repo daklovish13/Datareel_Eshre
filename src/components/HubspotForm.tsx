@@ -2,7 +2,11 @@
 
 import { useEffect } from "react";
 
-type TypeOfFormKey = "get_a_quotes" | "custom_form" | "get_a_quote";
+type TypeOfFormKey =
+  | "get_a_quotes"
+  | "custom_form"
+  | "get_a_quote"
+  | "request_demo";
 
 interface HubspotFormProps {
   id: TypeOfFormKey;
@@ -41,7 +45,7 @@ const HubspotForm = ({ id }: HubspotFormProps) => {
             console.log("Form is ready", form);
             // you could try:
             const labelElement = form.querySelector(
-              "#label-type_of_form-46724710-a1e3-43b1-b95b-35731765b942"
+              "#label-type_of_form-46724710-a1e3-43b1-b95b-35731765b942",
             );
             if (labelElement) {
               (labelElement as HTMLElement).style.display = "none";
@@ -49,9 +53,10 @@ const HubspotForm = ({ id }: HubspotFormProps) => {
                 get_a_quotes: "Get a Quote",
                 get_a_quote: "Get a Quote",
                 custom_form: "Request a demo",
+                request_demo: "Get a Quote",
               };
               const selectFeild = form.querySelector(
-                "#type_of_form-46724710-a1e3-43b1-b95b-35731765b942"
+                "#type_of_form-46724710-a1e3-43b1-b95b-35731765b942",
               );
               if (selectFeild) {
                 (selectFeild as HTMLSelectElement).value = type[id];
